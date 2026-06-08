@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cronograma CRM — Adiante Recebíveis · Jun–Jul 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f8f7f5;
+  --bg2:#ffffff;
+  --bg3:#f1f0ee;
+  --bg4:#eae9e6;
+  --border:rgba(0,0,0,0.07);
+  --border2:rgba(0,0,0,0.11);
+  --border3:rgba(0,0,0,0.18);
+  --text:#111318;
+  --text2:#5c6068;
+  --text3:#9ea4ad;
+  --shadow-sm:0 1px 2px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.04);
+  --shadow:0 2px 12px rgba(0,0,0,0.08),0 1px 3px rgba(0,0,0,0.05);
+
+  --blue:#1d6fe0;   --blue-bg:rgba(29,111,224,0.07); --blue-bg2:rgba(29,111,224,0.13); --blue-border:rgba(29,111,224,0.25); --blue-text:#0d4fa8;
+  --coral:#d43b1c;  --coral-bg:rgba(212,59,28,0.07); --coral-bg2:rgba(212,59,28,0.13); --coral-border:rgba(212,59,28,0.25); --coral-text:#9a2510;
+  --purple:#6c4fd4; --purple-bg:rgba(108,79,212,0.07);--purple-bg2:rgba(108,79,212,0.13);--purple-border:rgba(108,79,212,0.25);--purple-text:#47309a;
+  --green:#1a7f4e;  --green-bg:rgba(26,127,78,0.07); --green-bg2:rgba(26,127,78,0.13); --green-border:rgba(26,127,78,0.25); --green-text:#0d5232;
+  --teal:#0e8a90;   --teal-bg:rgba(14,138,144,0.07); --teal-bg2:rgba(14,138,144,0.13); --teal-border:rgba(14,138,144,0.25); --teal-text:#0a5c60;
+  --amber:#a06900;  --amber-bg:rgba(160,105,0,0.07); --amber-bg2:rgba(160,105,0,0.13); --amber-border:rgba(160,105,0,0.25); --amber-text:#6d4700;
+  --warn:#c45c00;   --warn-bg:rgba(196,92,0,0.08);   --warn-border:rgba(196,92,0,0.28);
+
+  --radius:10px;--radius-sm:7px;--radius-xs:5px;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.6;min-height:100vh}
+
+/* ─── HEADER ─────────────────────── */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(248,247,245,0.92);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border2);
+  padding:0 2rem;display:flex;align-items:center;gap:1.25rem;height:56px;
+  box-shadow:var(--shadow-sm);
+}
+.header-brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.header-logo{
+  width:30px;height:30px;
+  background:linear-gradient(135deg,#1d6fe0 0%,#0d4fa8 100%);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 1px 4px rgba(29,111,224,0.3);
+}
+.header-logo svg{width:16px;height:16px}
+.brand-name{font-family:'Fraunces',serif;font-size:15px;font-weight:500;color:var(--text);letter-spacing:-.02em;line-height:1.2}
+.brand-sub{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;letter-spacing:.04em}
+
+/* ─── FILTER BAR ─────────────────── */
+.filter-bar{display:flex;align-items:center;gap:5px;flex:1;overflow-x:auto;scrollbar-width:none}
+.filter-bar::-webkit-scrollbar{display:none}
+.filter-sep{width:1px;height:16px;background:var(--border2);margin:0 4px;flex-shrink:0}
+.filter-label{font-size:9px;font-family:'DM Mono',monospace;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap;flex-shrink:0}
+.fbtn{
+  font-size:11px;font-weight:500;padding:3px 10px;
+  border-radius:20px;border:1px solid var(--border2);
+  background:var(--bg2);color:var(--text3);cursor:pointer;
+  white-space:nowrap;transition:all .15s;flex-shrink:0;
+  box-shadow:var(--shadow-sm);
+}
+.fbtn:hover{color:var(--text2);border-color:var(--border3);background:var(--bg3)}
+.fbtn.active[data-seg="Carteira"]{background:var(--blue-bg2);color:var(--blue-text);border-color:var(--blue-border)}
+.fbtn.active[data-seg="Churn"]{background:var(--coral-bg2);color:var(--coral-text);border-color:var(--coral-border)}
+.fbtn.active[data-seg="Plus"]{background:var(--purple-bg2);color:var(--purple-text);border-color:var(--purple-border)}
+.fbtn.active[data-canal="E-mail"]{background:var(--green-bg2);color:var(--green-text);border-color:var(--green-border)}
+.fbtn.active[data-canal="WhatsApp"]{background:var(--teal-bg2);color:var(--teal-text);border-color:var(--teal-border)}
+.fbtn.active[data-canal="SMS"]{background:var(--amber-bg2);color:var(--amber-text);border-color:var(--amber-border)}
+.fbtn.active[data-mes]{background:rgba(0,0,0,0.07);color:var(--text);border-color:var(--border3)}
+.count-chip{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);white-space:nowrap;flex-shrink:0}
+.count-chip span{color:var(--text2);font-weight:500}
+.export-btn{
+  font-size:10.5px;font-family:'DM Mono',monospace;padding:4px 12px;
+  border-radius:var(--radius-sm);border:1px solid var(--border2);
+  background:var(--bg2);color:var(--text2);cursor:pointer;flex-shrink:0;
+  transition:all .15s;box-shadow:var(--shadow-sm);
+}
+.export-btn:hover{border-color:var(--border3);background:var(--bg3);color:var(--text)}
+
+/* ─── MAIN ───────────────────────── */
+.main{max-width:1300px;margin:0 auto;padding:2.5rem 2rem 5rem}
+
+/* ─── MONTH ──────────────────────── */
+.month-block{margin-bottom:3.5rem}
+.month-header{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:1.75rem;padding-bottom:12px;
+  border-bottom:2px solid var(--border2);
+}
+.month-title{font-family:'Fraunces',serif;font-size:28px;font-weight:300;color:var(--text);letter-spacing:-.03em;line-height:1}
+.month-meta{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);letter-spacing:.08em;padding:3px 9px;border:1px solid var(--border2);border-radius:20px;background:var(--bg3)}
+
+/* ─── WEEK ───────────────────────── */
+.week-block{margin-bottom:2rem}
+.week-label{
+  font-size:9px;font-family:'DM Mono',monospace;color:var(--text3);
+  text-transform:uppercase;letter-spacing:.14em;
+  margin-bottom:.85rem;display:flex;align-items:center;gap:10px;
+}
+.week-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+.week-tema{font-family:'DM Mono',monospace;color:var(--text2);font-weight:500;letter-spacing:.04em;text-transform:none}
+.week-freq{
+  font-size:9px;font-family:'DM Mono',monospace;color:var(--text3);
+  background:var(--bg3);border:1px solid var(--border2);
+  border-radius:var(--radius-xs);padding:1px 8px;white-space:nowrap;
+}
+
+/* ─── DAY BLOCK ──────────────────── */
+.day-block{margin-bottom:6px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
+.day-header{
+  display:flex;align-items:center;gap:12px;padding:10px 16px;
+  background:var(--bg3);border:1px solid var(--border2);
+  border-radius:var(--radius);
+  cursor:pointer;user-select:none;transition:all .15s;
+}
+.day-header:hover{background:var(--bg4);border-color:var(--border3);box-shadow:var(--shadow)}
+.day-header.open{border-radius:var(--radius) var(--radius) 0 0;border-bottom-color:var(--border)}
+.day-date{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--text);min-width:52px;letter-spacing:.02em}
+.day-weekday{font-size:11px;color:var(--text3);min-width:60px}
+.day-chips{display:flex;gap:4px;flex-wrap:wrap;margin-left:2px;flex:1}
+.day-chip{font-size:9px;padding:2px 8px;border-radius:10px;font-weight:500}
+.chip-carteira{background:var(--blue-bg);color:var(--blue-text);border:1px solid var(--blue-border)}
+.chip-churn{background:var(--coral-bg);color:var(--coral-text);border:1px solid var(--coral-border)}
+.chip-plus{background:var(--purple-bg);color:var(--purple-text);border:1px solid var(--purple-border)}
+.chip-email{background:var(--green-bg);color:var(--green-text);border:1px solid var(--green-border)}
+.chip-whats{background:var(--teal-bg);color:var(--teal-text);border:1px solid var(--teal-border)}
+.chip-sms{background:var(--amber-bg);color:var(--amber-text);border:1px solid var(--amber-border)}
+.day-count{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);white-space:nowrap}
+.toggle-icon{font-size:11px;color:var(--text3);transition:transform .2s cubic-bezier(.4,0,.2,1);flex-shrink:0}
+.day-header.open .toggle-icon{transform:rotate(180deg)}
+.day-rows{border:1px solid var(--border2);border-top:none;border-radius:0 0 var(--radius) var(--radius);overflow:hidden;display:none}
+.day-rows.open{display:block}
+
+/* ─── FERIADO ────────────────────── */
+.feriado{
+  display:flex;align-items:center;gap:10px;padding:10px 16px;
+  background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);
+  font-size:12px;color:var(--text3);font-style:italic;margin-bottom:6px;
+}
+
+/* ─── ROW ────────────────────────── */
+.row{
+  display:grid;grid-template-columns:36px 46px 40px 108px 108px 1fr;
+  border-top:1px solid var(--border);background:var(--bg2);
+  transition:background .12s,opacity .2s;
+  cursor:default;
+}
+.row:first-child{border-top:none}
+.row:hover{background:#f9f8ff}
+.row.done{background:var(--bg3);opacity:0.5}
+.row.done .copy-body{text-decoration:line-through}
+.row.dragging{opacity:0.35;background:var(--blue-bg)}
+.row.drag-over{border-top:2px solid var(--blue)}
+.cell{padding:12px 14px;border-right:1px solid var(--border)}
+.cell:last-child{border-right:none}
+
+/* drag handle */
+.drag-cell{display:flex;align-items:center;justify-content:center;padding:0 6px;border-right:1px solid var(--border);cursor:grab;color:var(--text3);opacity:0}
+.row:hover .drag-cell{opacity:1}
+.drag-cell:active{cursor:grabbing}
+.drag-cell svg{width:12px;height:12px}
+
+/* checkbox */
+.chk-cell{display:flex;align-items:flex-start;justify-content:center;padding:14px 0;border-right:1px solid var(--border)}
+.chk-cell input{width:14px;height:14px;cursor:pointer;accent-color:var(--green)}
+
+/* ─── ACTION BUTTONS ─────────────── */
+.row-actions{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2px;padding:6px 5px;border-right:1px solid var(--border);
+}
+.action-btn{
+  background:none;border:1px solid transparent;cursor:pointer;
+  width:24px;height:24px;border-radius:var(--radius-xs);
+  line-height:1;color:var(--text3);
+  transition:all .15s;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.action-btn svg{width:13px;height:13px;display:block;flex-shrink:0}
+.action-btn:hover{color:var(--text2);background:var(--bg3);border-color:var(--border2)}
+.action-btn.active{background:var(--amber-bg2);border-color:var(--amber-border);color:var(--amber-text)}
+.action-btn.editing{background:var(--green-bg2);border-color:var(--green-border);color:var(--green-text)}
+.action-btn.del{color:var(--coral-text);opacity:0}
+.row:hover .action-btn.del{opacity:1}
+.action-btn.del:hover{background:var(--coral-bg2);border-color:var(--coral-border)}
+
+/* ─── BADGES ─────────────────────── */
+.badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:10px;font-weight:500;padding:3px 9px;
+  border-radius:20px;width:fit-content;
+}
+.badge svg{width:10px;height:10px;flex-shrink:0}
+.badge-carteira{background:var(--blue-bg);color:var(--blue-text);border:1px solid var(--blue-border)}
+.badge-churn{background:var(--coral-bg);color:var(--coral-text);border:1px solid var(--coral-border)}
+.badge-plus{background:var(--purple-bg);color:var(--purple-text);border:1px solid var(--purple-border)}
+.badge-email{background:var(--green-bg);color:var(--green-text);border:1px solid var(--green-border)}
+.badge-whats{background:var(--teal-bg);color:var(--teal-text);border:1px solid var(--teal-border)}
+.badge-sms{background:var(--amber-bg);color:var(--amber-text);border:1px solid var(--amber-border)}
+
+/* ─── COPY CONTENT ───────────────── */
+.copy-assunto{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);margin-bottom:5px;letter-spacing:.02em}
+.copy-body{font-size:13px;color:var(--text);line-height:1.6;white-space:pre-line}
+.alerta{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:9.5px;font-weight:500;padding:2px 8px;
+  border-radius:20px;background:var(--warn-bg);color:var(--warn);
+  border:1px solid var(--warn-border);margin-top:4px;width:fit-content;
+}
+
+/* ─── NOTES ──────────────────────── */
+.note-row{
+  background:#fffef5;
+  border-top:1px solid rgba(160,105,0,0.15);
+  padding:10px 14px 12px;display:none;
+}
+.note-row.open{display:block}
+.note-label-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.note-label{font-size:9px;font-family:'DM Mono',monospace;color:var(--amber-text);text-transform:uppercase;letter-spacing:.1em}
+.note-del-btn{
+  font-size:10px;font-family:'DM Sans',sans-serif;color:var(--coral-text);
+  background:none;border:1px solid var(--coral-border);border-radius:20px;
+  padding:1px 9px;cursor:pointer;transition:all .15s;
+}
+.note-del-btn:hover{background:var(--coral-bg);}
+.note-row textarea{
+  width:100%;min-height:72px;resize:vertical;
+  font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);
+  background:#ffffff;border:1px solid var(--amber-border);
+  border-radius:var(--radius-sm);padding:9px 11px;outline:none;line-height:1.6;
+  transition:border-color .15s,box-shadow .15s;
+  box-shadow:var(--shadow-sm);
+}
+.note-row textarea:focus{border-color:var(--amber);box-shadow:0 0 0 3px var(--amber-bg)}
+.note-row textarea::placeholder{color:var(--text3);font-style:italic}
+
+/* ─── EDIT MODE ──────────────────── */
+.copy-body[contenteditable="true"]{outline:none;cursor:text;}
+
+/* ─── MISC ───────────────────────── */
+.no-disp{font-size:12px;color:var(--text3);font-style:italic;padding:12px 14px;background:var(--bg2)}
+.empty-state{text-align:center;padding:5rem;color:var(--text3);font-size:13px}
+
+@media print{
+  .site-header{position:static;box-shadow:none}
+  .filter-bar,.export-btn{display:none}
+  .day-rows{display:block!important}
+  .row{break-inside:avoid}
+  .note-row{display:block!important}
+  .row-actions{display:none}
+}
+@media(max-width:900px){
+  .row{grid-template-columns:28px 42px 36px 90px 1fr}
+  .row .cell:nth-child(5){display:none}
+  .main{padding:1.5rem 1rem 4rem}
+}
+@media(max-width:600px){
+  .row{grid-template-columns:28px 38px 34px 1fr}
+  .row .cell:nth-child(4){display:none}
+  .main{padding:1rem 1rem 3rem}
+  .site-header{flex-wrap:wrap;height:auto;padding:.75rem 1rem;gap:.75rem}
+  .month-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-brand">
+    <div class="header-logo"><svg viewBox="0 0 16 16" fill="none"><path d="M3 12L8 4L13 12H3Z" fill="white" fill-opacity=".9"/></svg></div>
+    <div>
+      <div class="brand-name">Adiante Recebíveis</div>
+      <div class="brand-sub">Cronograma CRM · Jun–Jul 2026</div>
+    </div>
+  </div>
+  <div class="filter-bar" id="filterBar">
+    <span class="filter-label">Mês</span>
+    <button class="fbtn active" data-type="mes" data-mes="jun">Junho</button>
+    <button class="fbtn active" data-type="mes" data-mes="jul">Julho</button>
+    <div class="filter-sep"></div>
+    <span class="filter-label">Seg.</span>
+    <button class="fbtn active" data-type="seg" data-seg="Carteira">Carteira</button>
+    <button class="fbtn active" data-type="seg" data-seg="Churn">Churn</button>
+    <button class="fbtn active" data-type="seg" data-seg="Plus">Plus</button>
+    <div class="filter-sep"></div>
+    <span class="filter-label">Canal</span>
+    <button class="fbtn active" data-type="canal" data-canal="E-mail">E-mail</button>
+    <button class="fbtn active" data-type="canal" data-canal="WhatsApp">WhatsApp</button>
+    <button class="fbtn active" data-type="canal" data-canal="SMS">SMS</button>
+    <div class="filter-sep"></div>
+    <div class="count-chip" id="counter">— disparos</div>
+  </div>
+  <button class="export-btn" onclick="window.print()">↓ imprimir</button>
+</header>
+
+<main class="main" id="app"></main>
+
+<script>
+const WEEKS = [
+
+{mes:"jun", semana:"1ª Semana Junho", tema:"Ativação de Limite", freq:"WA×2 · SMS×3 · Email×2", dias:[
+  {data:"01/06", diaSem:"Segunda", disparos:[]},
+  {data:"02/06", diaSem:"Terça", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Limite liberado para sua operação", copy:"[Nome],\n\nO início do mês exige organização financeira.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Churn", canal:"E-mail", assunto:"Retome sua operação sem nova análise", copy:"[Nome],\n\nNão deixe seu capital ocioso.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Carteira", canal:"WhatsApp", copy:"[Nome], a semana começou. Seu limite está liberado hoje. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Inicio de mes. Seu limite esta liberado. Acesse: [link]"},
+    {seg:"Churn", canal:"WhatsApp", copy:"[Nome], seu cadastro continua aprovado. Seu limite está liberado hoje. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Churn", canal:"SMS", copy:"Adiante: Conta aprovada. Retome sua operacao agora. Acesse: [link]"},
+  ]},
+  {data:"03/06", diaSem:"Quarta", disparos:[
+    {seg:"Plus", canal:"E-mail", assunto:"Limite de R$ 500k liberado para sua empresa", copy:"[Nome],\n\nEmpresas com faturamento acima de R$ 800k precisam de agilidade.\n\nSeu perfil no Adiante Plus está pronto. Use nosso Agente de IA para aprovação imediata e sem filas.\n\nAcesse o portal e antecipe."},
+    {seg:"Carteira", canal:"WhatsApp", copy:"[Nome], faltam 2 dias para a sexta-feira. Seu limite está liberado hoje. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Alinhe o caixa de sexta hoje. Antecipe suas notas. Acesse: [link]"},
+    {seg:"Churn", canal:"WhatsApp", copy:"[Nome], não perca seu limite pré-aprovado. Seu limite está liberado hoje. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Churn", canal:"SMS", copy:"Adiante: Limites inativos em revisao. Mantenha o seu. Acesse: [link]"},
+  ]},
+  {data:"04/06", diaSem:"Quinta", feriado:"Corpus Christi — sem disparo"},
+  {data:"05/06", diaSem:"Sexta", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Capital garantido para o fim de semana", copy:"[Nome],\n\nA semana fecha hoje.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Fechamento da semana. Garanta seu fluxo de caixa. Acesse: [link]"},
+    {seg:"Churn", canal:"E-mail", assunto:"Último dia da semana para usar seu limite", copy:"[Nome],\n\nEvite imprevistos na próxima segunda.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Churn", canal:"SMS", copy:"Adiante: Sexta-feira. Opere antes do fim de semana. Acesse: [link]"},
+    {seg:"Plus", canal:"E-mail", assunto:"Adiante Plus: Agilidade para fechar a semana", copy:"[Nome],\n\nEstruture as saídas de sexta-feira com eficiência.\n\nSeu perfil Plus está ativo. Acesse limites até R$ 500k e aprovação imediata com nosso Agente de IA.\n\nAcesse o portal e antecipe."},
+  ]},
+]},
+
+{mes:"jun", semana:"2ª Semana Junho", tema:"Recorrência Ativa", freq:"WA×1 · SMS×3 · Email×2", dias:[
+  {data:"08/06", diaSem:"Segunda", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Limite liberado para iniciar a semana", copy:"[Nome],\n\nComeçar a semana com o caixa no azul é essencial.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Churn", canal:"E-mail", assunto:"Crédito aprovado e disponível", copy:"[Nome],\n\nNão espere a urgência bater para buscar crédito.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Plus", canal:"E-mail", assunto:"Otimize seu tempo com o Adiante Plus", copy:"[Nome],\n\nOperações acima de R$ 800k exigem respostas rápidas.\n\nSeu perfil no Adiante Plus está pronto. Use nosso Agente de IA para aprovação imediata e acesse limites maiores.\n\nAcesse o portal e ative."},
+  ]},
+  {data:"09/06", diaSem:"Terça", disparos:[
+    {seg:"Carteira", canal:"WhatsApp", copy:"[Nome], ganhe poder de negociação à vista. Seu limite está liberado hoje. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Desconto ativo na taxa. Acelere seu caixa hoje. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"Semana com Cupom", copy:"Adiante: Cupom de desconto liberado. Retome sua operacao. Acesse: [link]"},
+  ]},
+  {data:"10/06", diaSem:"Quarta", disparos:[
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Limite liberado. Use seu cupom de desconto hoje. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"Semana com Cupom", copy:"Adiante: Cupom ativo. Retome sua operacao em minutos. Acesse: [link]"},
+  ]},
+  {data:"11/06", diaSem:"Quinta", disparos:[
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Faltam 2 dias de desconto. Antecipe agora. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"Semana com Cupom", copy:"Adiante: Nao deixe o cupom expirar. Opere agora. Acesse: [link]"},
+  ]},
+  {data:"12/06", diaSem:"Sexta", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Resgate imediato antes das 17h", copy:"[Nome],\n\nFeche a semana sem pendências financeiras.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Churn", canal:"E-mail", assunto:"Seu limite continua ativo nesta sexta", copy:"[Nome],\n\nGaranta tranquilidade para o fim de semana.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Plus", canal:"E-mail", assunto:"Adiante Plus: Aprovação sem gargalos", copy:"[Nome],\n\nSexta-feira exige liquidez rápida.\n\nSeu perfil Plus está ativo. Acesse limites até R$ 500k e aprovação imediata com nosso Agente de IA.\n\nAcesse o portal e antecipe."},
+  ]},
+]},
+
+{mes:"jun", semana:"3ª Semana Junho", tema:"Meio de Mês — Pressão de Caixa", freq:"WA×1 · SMS×3 · Email×2", dias:[
+  {data:"15/06", diaSem:"Segunda", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Preparação para a segunda quinzena", copy:"[Nome],\n\nO meio do mês costuma apertar o fluxo de caixa.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Churn", canal:"E-mail", assunto:"Crédito imediato para a segunda quinzena", copy:"[Nome],\n\nA meta do mês apertou? A antecipação resolve agora.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Plus", canal:"E-mail", assunto:"Adiante Plus: Liquidez para o meio do mês", copy:"[Nome],\n\nFaturamentos acima de R$ 800k exigem fluxo constante.\n\nSeu perfil no Adiante Plus está pronto. Use nosso Agente de IA para aprovação imediata e sem filas.\n\nAcesse o portal e antecipe."},
+  ]},
+  {data:"16/06", diaSem:"Terça", disparos:[
+    {seg:"Carteira", canal:"WhatsApp", copy:"[Nome], a segunda quinzena começou. Seu limite está liberado hoje. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Proteja seu giro na segunda quinzena. Antecipe hoje. Acesse: [link]"},
+    {seg:"Churn", canal:"WhatsApp", copy:"[Nome], fuja da burocracia. Seu limite está liberado hoje. Antecipe suas NFs e garanta o caixa da operação sem nova análise: [link]"},
+    {seg:"Churn", canal:"SMS", copy:"Adiante: Operacao sem atrito. Acesse seu limite agora. Acesse: [link]"},
+  ]},
+  {data:"17/06", diaSem:"Quarta", disparos:[
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Dinheiro disponivel. Reforce seu caixa hoje. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", copy:"Adiante: Momento critico do mes. Retome sua operacao. Acesse: [link]"},
+  ]},
+  {data:"18/06", diaSem:"Quinta", disparos:[
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Otimize seu capital de giro. Limite liberado. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", copy:"Adiante: Credito rapido e sem reanalise. Opere ja. Acesse: [link]"},
+  ]},
+  {data:"19/06", diaSem:"Sexta", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Garanta o fluxo da próxima semana", copy:"[Nome],\n\nEvite atrasos na segunda-feira.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Churn", canal:"E-mail", assunto:"Reative seu caixa antes das 17h", copy:"[Nome],\n\nDinheiro a um clique de distância.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Plus", canal:"E-mail", assunto:"Adiante Plus: Aprovação imediata com IA", copy:"[Nome],\n\nVocê não tem tempo para processos lentos.\n\nSeu perfil Plus está ativo. Acesse limites até R$ 500k e aprovação imediata com nosso Agente de IA.\n\nAcesse o portal e antecipe."},
+  ]},
+]},
+
+{mes:"jun", semana:"4ª Semana Junho", tema:"Fechamento de Mês", freq:"WA×2 · SMS×5 · Email×2", dias:[
+  {data:"22/06", diaSem:"Segunda", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"50% OFF para fechar o mês no azul", copy:"[Nome],\n\nFaltam 5 dias úteis para o fechamento de junho.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso com 50% de desconto na taxa. O processo é direto e o saldo cai em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Carteira", canal:"WhatsApp", copy:"[Nome], começou a semana de fechamento. Seu limite está liberado hoje com 50% OFF na taxa. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Carteira", canal:"SMS", alerta:"50% taxa fechamento", copy:"Adiante: Fechamento de mes. Aproveite 50% de desconto na taxa. Acesse: [link]"},
+    {seg:"Churn", canal:"WhatsApp", copy:"[Nome], o mês está virando. Seu limite está liberado hoje com 50% OFF na taxa. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"50% taxa — Score A/B", copy:"Adiante: Volte a operar no fechamento. 50% off na taxa. Acesse: [link]"},
+    {seg:"Plus", canal:"E-mail", assunto:"Adiante Plus: Fechamento robusto com 50% OFF", copy:"[Nome],\n\nA virada do mês dita o ritmo do negócio.\n\nSeu perfil Plus está ativo. Aproveite 50% de desconto na taxa, limites até R$ 500k e aprovação via Agente de IA.\n\nAcesse o portal e antecipe."},
+  ]},
+  {data:"23/06", diaSem:"Terça", disparos:[
+    {seg:"Carteira", canal:"SMS", alerta:"50% taxa fechamento", copy:"Adiante: 4 dias para fechar o mes. 50% off na taxa. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"50% taxa — Score A/B", copy:"Adiante: Retome hoje com 50% de desconto na taxa. Acesse: [link]"},
+  ]},
+  {data:"24/06", diaSem:"Quarta", disparos:[
+    {seg:"Carteira", canal:"SMS", alerta:"50% taxa fechamento", copy:"Adiante: Faltam 3 dias. Feche o mes com 50% off na taxa. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"50% taxa — Score A/B", copy:"Adiante: 3 dias para fechar. Retome sua conta com 50% off. Acesse: [link]"},
+  ]},
+  {data:"25/06", diaSem:"Quinta", disparos:[
+    {seg:"Carteira", canal:"WhatsApp", copy:"[Nome], amanhã é o último dia. Seu limite está liberado hoje com 50% OFF na taxa. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Carteira", canal:"SMS", alerta:"50% taxa fechamento", copy:"Adiante: Penultimo dia. Ultimas horas com 50% off na taxa. Acesse: [link]"},
+    {seg:"Churn", canal:"WhatsApp", copy:"[Nome], o mês acaba amanhã. Seu limite está liberado hoje com 50% OFF na taxa. Antecipe suas NFs e garanta o caixa da operação sem nova análise: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"50% taxa — Score A/B", copy:"Adiante: Penultimo dia. 50% de desconto para reativar conta. Acesse: [link]"},
+  ]},
+  {data:"26/06", diaSem:"Sexta", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Último chamado: 50% OFF termina hoje", copy:"[Nome],\n\nO mês encerra hoje às 17h.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso com 50% de desconto na taxa. O processo é direto e o saldo cai em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Carteira", canal:"SMS", alerta:"50% taxa fechamento", copy:"Adiante: HOJE. O mes fecha agora. Aproveite 50% off na taxa. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"50% taxa — Score A/B", copy:"Adiante: HOJE. Feche o mes retomando com 50% off na taxa. Acesse: [link]"},
+    {seg:"Plus", canal:"E-mail", assunto:"Últimas horas: Adiante Plus com 50% OFF", copy:"[Nome],\n\nGaranta a rentabilidade do fechamento.\n\nSeu perfil Plus está ativo. Aproveite 50% de desconto na taxa, limites até R$ 500k e aprovação via Agente de IA.\n\nAcesse o portal e antecipe."},
+  ]},
+]},
+
+{mes:"jul", semana:"1ª Semana Julho", tema:"Abertura — Ritmo Imediato", freq:"WA×1 · SMS×3 · Email×2", dias:[
+  {data:"01/07", diaSem:"Quarta", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Limite liberado para a primeira quinzena", copy:"[Nome],\n\nO mês de julho começou.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Churn", canal:"E-mail", assunto:"Inicie o semestre com crédito liberado", copy:"[Nome],\n\nNão deixe para depois a organização do caixa.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Plus", canal:"E-mail", assunto:"Adiante Plus: Agilidade para o novo semestre", copy:"[Nome],\n\nOperações acima de R$ 800k precisam de capital imediato.\n\nSeu perfil no Adiante Plus está pronto. Use nosso Agente de IA para aprovação imediata e sem filas.\n\nAcesse o portal e antecipe."},
+  ]},
+  {data:"02/07", diaSem:"Quinta", disparos:[
+    {seg:"Carteira", canal:"WhatsApp", copy:"[Nome], garanta liquidez no início do mês. Seu limite está liberado hoje. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Dinheiro na mao atrai negocios. Antecipe e pague a vista. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", copy:"Adiante: Julho abriu. Retome a parceria em minutos. Acesse: [link]"},
+  ]},
+  {data:"03/07", diaSem:"Sexta", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Caixa garantido no primeiro fim de semana", copy:"[Nome],\n\nCapitalize agora e acelere o negócio.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: O primeiro fim de semana exige caixa. Antecipe ja. Acesse: [link]"},
+    {seg:"Churn", canal:"E-mail", assunto:"Acesse sua conta sem nova aprovação", copy:"[Nome],\n\nNão há bloqueios na sua conta do Adiante.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Churn", canal:"SMS", copy:"Adiante: Retome a agilidade. Sem filas ou ligacoes. Acesse: [link]"},
+    {seg:"Plus", canal:"E-mail", assunto:"Adiante Plus: Atendimento sem espera", copy:"[Nome],\n\nSeu tempo vale dinheiro.\n\nSeu perfil Plus está ativo. Acesse limites até R$ 500k e aprovação imediata com nosso Agente de IA.\n\nAcesse o portal e antecipe."},
+  ]},
+]},
+
+{mes:"jul", semana:"2ª Semana Julho", tema:"Consistência de Caixa", freq:"WA×1 · SMS×3 · Email×2", dias:[
+  {data:"06/07", diaSem:"Segunda", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Limite liberado para iniciar a semana", copy:"[Nome],\n\nConstrua liquidez de forma inteligente.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Churn", canal:"E-mail", assunto:"Seu painel de crédito aguarda uso", copy:"[Nome],\n\nVoltar a usar o Adiante não exige recadastro.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Plus", canal:"E-mail", assunto:"Otimize seu tempo com o Adiante Plus", copy:"[Nome],\n\nOperações acima de R$ 800k exigem respostas rápidas.\n\nSeu perfil no Adiante Plus está pronto. Use nosso Agente de IA para aprovação imediata e acesse limites maiores.\n\nAcesse o portal e ative."},
+  ]},
+  {data:"07/07", diaSem:"Terça", disparos:[
+    {seg:"Carteira", canal:"WhatsApp", copy:"[Nome], ganhe poder de negociação. Seu limite está liberado hoje. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Cupom da semana liberado. Aumente seu saldo agora. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"Semana com Cupom", copy:"Adiante: Retome a operacao com o cupom exclusivo de julho. Acesse: [link]"},
+  ]},
+  {data:"08/07", diaSem:"Quarta", disparos:[
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Limite liberado. Use seu cupom de desconto hoje. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"Semana com Cupom", copy:"Adiante: Cupom ativo. Retome sua operacao em minutos. Acesse: [link]"},
+  ]},
+  {data:"09/07", diaSem:"Quinta", disparos:[
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Faltam 2 dias de cupom. Antecipe agora. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"Semana com Cupom", copy:"Adiante: Nao deixe o cupom expirar. Opere agora. Acesse: [link]"},
+  ]},
+  {data:"10/07", diaSem:"Sexta", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Resgate imediato antes das 17h", copy:"[Nome],\n\nFolha de pagamento e impostos não esperam.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Churn", canal:"E-mail", assunto:"Seu limite continua ativo nesta sexta", copy:"[Nome],\n\nSimplifique sua sexta-feira.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Plus", canal:"E-mail", assunto:"Adiante Plus: Aprovação sem gargalos", copy:"[Nome],\n\nSexta-feira exige liquidez rápida.\n\nSeu perfil Plus está ativo. Acesse limites até R$ 500k e aprovação imediata com nosso Agente de IA.\n\nAcesse o portal e antecipe."},
+  ]},
+]},
+
+{mes:"jul", semana:"3ª Semana Julho", tema:"Meio de Mês + Gatilho Escasso", freq:"WA×1 · SMS×3 · Email×2", dias:[
+  {data:"13/07", diaSem:"Segunda", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Preparação para a segunda quinzena", copy:"[Nome],\n\nO meio do mês exige fôlego no caixa.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Churn", canal:"E-mail", assunto:"Crédito imediato para a segunda quinzena", copy:"[Nome],\n\nDesbloqueie sua liquidez agora mesmo.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Plus", canal:"E-mail", assunto:"Adiante Plus: Liquidez para o meio do mês", copy:"[Nome],\n\nFaturamentos acima de R$ 800k exigem fluxo constante.\n\nSeu perfil no Adiante Plus está pronto. Use nosso Agente de IA para aprovação imediata e sem filas.\n\nAcesse o portal e antecipe."},
+  ]},
+  {data:"14/07", diaSem:"Terça", disparos:[
+    {seg:"Carteira", canal:"WhatsApp", copy:"[Nome], a segunda quinzena começou. Seu limite está liberado hoje. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Proteja seu giro na segunda quinzena. Antecipe hoje. Acesse: [link]"},
+    {seg:"Churn", canal:"WhatsApp", copy:"[Nome], fuja da burocracia. Seu limite está liberado hoje. Antecipe suas NFs e garanta o caixa da operação sem nova análise: [link]"},
+    {seg:"Churn", canal:"SMS", copy:"Adiante: Operacao sem atrito. Acesse seu limite agora. Acesse: [link]"},
+  ]},
+  {data:"15/07", diaSem:"Quarta", disparos:[
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Dinheiro disponivel. Reforce seu caixa hoje. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", copy:"Adiante: Momento critico do mes. Retome sua operacao. Acesse: [link]"},
+  ]},
+  {data:"16/07", diaSem:"Quinta", disparos:[
+    {seg:"Carteira", canal:"SMS", copy:"Adiante: Otimize seu capital de giro. Limite liberado. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", copy:"Adiante: Credito rapido e sem reanalise. Opere ja. Acesse: [link]"},
+  ]},
+  {data:"17/07", diaSem:"Sexta", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Garanta o fluxo da próxima semana", copy:"[Nome],\n\nO caixa de sexta não perdoa atrasos.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Churn", canal:"E-mail", assunto:"Reative seu caixa antes das 17h", copy:"[Nome],\n\nDinheiro a um clique de distância.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso. O processo é direto pelo sistema e o saldo cai na sua conta em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Plus", canal:"E-mail", assunto:"Adiante Plus: Aprovação imediata com IA", copy:"[Nome],\n\nVocê não tem tempo para processos lentos.\n\nSeu perfil Plus está ativo. Acesse limites até R$ 500k e aprovação imediata com nosso Agente de IA.\n\nAcesse o portal e antecipe."},
+  ]},
+]},
+
+{mes:"jul", semana:"4ª Semana Julho", tema:"Fechamento de Mês", freq:"WA×2 · SMS×5 · Email×2", dias:[
+  {data:"20/07", diaSem:"Segunda", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"50% OFF para fechar o mês no azul", copy:"[Nome],\n\nA janela de fechamento se abriu.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso com 50% de desconto na taxa. O processo é direto e o saldo cai em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Carteira", canal:"WhatsApp", copy:"[Nome], começou a semana de fechamento. Seu limite está liberado hoje com 50% OFF na taxa. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Carteira", canal:"SMS", alerta:"50% taxa fechamento", copy:"Adiante: Fechamento de mes. Aproveite 50% de desconto na taxa. Acesse: [link]"},
+    {seg:"Churn", canal:"WhatsApp", copy:"[Nome], o mês está virando. Seu limite está liberado hoje com 50% OFF na taxa. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"50% taxa — Score A/B", copy:"Adiante: Volte a operar no fechamento. 50% off na taxa. Acesse: [link]"},
+    {seg:"Plus", canal:"E-mail", assunto:"Adiante Plus: Fechamento robusto com 50% OFF", copy:"[Nome],\n\nA virada do mês dita o ritmo do negócio.\n\nSeu perfil Plus está ativo. Aproveite 50% de desconto na taxa, limites até R$ 500k e aprovação via Agente de IA.\n\nAcesse o portal e antecipe."},
+  ]},
+  {data:"21/07", diaSem:"Terça", disparos:[
+    {seg:"Carteira", canal:"SMS", alerta:"50% taxa fechamento", copy:"Adiante: 4 dias para fechar o mes. 50% off na taxa. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"50% taxa — Score A/B", copy:"Adiante: Retome hoje com 50% de desconto na taxa. Acesse: [link]"},
+  ]},
+  {data:"22/07", diaSem:"Quarta", disparos:[
+    {seg:"Carteira", canal:"SMS", alerta:"50% taxa fechamento", copy:"Adiante: Faltam 3 dias. Feche o mes com 50% off na taxa. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"50% taxa — Score A/B", copy:"Adiante: 3 dias para fechar. Retome sua conta com 50% off. Acesse: [link]"},
+  ]},
+  {data:"23/07", diaSem:"Quinta", disparos:[
+    {seg:"Carteira", canal:"WhatsApp", copy:"[Nome], amanhã é o último dia. Seu limite está liberado hoje com 50% OFF na taxa. Antecipe suas NFs e garanta o caixa da operação sem burocracia: [link]"},
+    {seg:"Carteira", canal:"SMS", alerta:"50% taxa fechamento", copy:"Adiante: Penultimo dia. Ultimas horas com 50% off na taxa. Acesse: [link]"},
+    {seg:"Churn", canal:"WhatsApp", copy:"[Nome], o mês acaba amanhã. Seu limite está liberado hoje com 50% OFF na taxa. Antecipe suas NFs e garanta o caixa da operação sem nova análise: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"50% taxa — Score A/B", copy:"Adiante: Penultimo dia. 50% de desconto para reativar conta. Acesse: [link]"},
+  ]},
+  {data:"24/07", diaSem:"Sexta", disparos:[
+    {seg:"Carteira", canal:"E-mail", assunto:"Último chamado: 50% OFF termina hoje", copy:"[Nome],\n\nO mês encerra hoje às 17h.\n\nSeu cadastro está ativo e seu limite no Adiante está pronto para uso com 50% de desconto na taxa. O processo é direto e o saldo cai em minutos.\n\nAcesse o portal e antecipe."},
+    {seg:"Carteira", canal:"SMS", alerta:"50% taxa fechamento", copy:"Adiante: HOJE. O mes fecha agora. Aproveite 50% off na taxa. Acesse: [link]"},
+    {seg:"Churn", canal:"SMS", alerta:"50% taxa — Score A/B", copy:"Adiante: HOJE. Feche o mes retomando com 50% off na taxa. Acesse: [link]"},
+    {seg:"Plus", canal:"E-mail", assunto:"Últimas horas: Adiante Plus com 50% OFF", copy:"[Nome],\n\nGaranta a rentabilidade do fechamento.\n\nSeu perfil Plus está ativo. Aproveite 50% de desconto na taxa, limites até R$ 500k e aprovação via Agente de IA.\n\nAcesse o portal e antecipe."},
+  ]},
+]}
+
+];
+
+// ─── Persistência ───
+const DONE_KEY    = "crm_done_state";
+const NOTE_KEY    = "crm_notes";
+const COPY_KEY    = "crm_copies";
+const DELETED_KEY = "crm_deleted";
+const ORDER_KEY   = "crm_order";
+let doneState    = JSON.parse(localStorage.getItem(DONE_KEY)    || "{}");
+let noteState    = JSON.parse(localStorage.getItem(NOTE_KEY)    || "{}");
+let copyState    = JSON.parse(localStorage.getItem(COPY_KEY)    || "{}");
+let deletedState = JSON.parse(localStorage.getItem(DELETED_KEY) || "{}");
+let orderState   = JSON.parse(localStorage.getItem(ORDER_KEY)   || "{}");
+
+window.toggleDone = function(id) {
+  if(doneState[id]) delete doneState[id];
+  else doneState[id] = true;
+  localStorage.setItem(DONE_KEY, JSON.stringify(doneState));
+  const row = document.getElementById("row-"+id);
+  if(row) row.classList.toggle("done", !!doneState[id]);
+};
+
+// ─── Estado dos filtros ───
+const state = {
+  mes: new Set(["jun","jul"]),
+  seg: new Set(["Carteira","Churn","Plus"]),
+  canal: new Set(["E-mail","WhatsApp","SMS"])
+};
+
+const ICONS = {
+  "E-mail":`<svg viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="8" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M1.5 3L6 7L10.5 3" stroke="currentColor" stroke-width="1.2"/></svg>`,
+  "WhatsApp":`<svg viewBox="0 0 12 12" fill="none"><path d="M6 1C3.24 1 1 3.24 1 6c0 .88.24 1.7.65 2.42L1 11l2.65-.64A4.97 4.97 0 006 11c2.76 0 5-2.24 5-5S8.76 1 6 1z" stroke="currentColor" stroke-width="1.1"/><path d="M4 5.5s.38.75 1.13 1.5S6.75 8 6.75 8l.75-.75L6.38 6.13l-.75.37-.38-.38L6.13 5.25 5 4.25 4 5.5z" fill="currentColor"/></svg>`,
+  "SMS":`<svg viewBox="0 0 12 12" fill="none"><rect x="1" y="1.5" width="10" height="7" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M3.5 10.5L4.5 8h3l1 2.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><path d="M3.5 4.5h5M3.5 6h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>`,
+};
+const WARN = `<svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M4.5 1L8 8H1L4.5 1Z" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 3.5V5.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><circle cx="4.5" cy="6.8" r=".4" fill="currentColor"/></svg>`;
+
+function segClass(s){ return s==="Carteira"?"badge-carteira":s==="Churn"?"badge-churn":"badge-plus"; }
+function canalClass(c){ return c==="E-mail"?"badge-email":c==="WhatsApp"?"badge-whats":"badge-sms"; }
+function chipCanal(c){ return c==="E-mail"?"chip-email":c==="WhatsApp"?"chip-whats":"chip-sms"; }
+
+function render(){
+  let total = 0;
+  let html = "";
+  let curMes = "";
+
+  WEEKS.forEach((wk, wIdx) => {
+    if(!state.mes.has(wk.mes)) return;
+
+    let daysHtml = "";
+    let wkVisible = false;
+
+    wk.dias.forEach((dia, dIdx) => {
+      if(dia.feriado){
+        daysHtml += `<div class="feriado">📅 ${dia.data} ${dia.diaSem} — ${dia.feriado}</div>`;
+        return;
+      }
+
+      const vis = dia.disparos.filter((d, dispIdx) => {
+        const rid = `${wk.mes}_${wIdx}_${dia.data.replace('/','-')}_${dispIdx}`;
+        return state.seg.has(d.seg) && state.canal.has(d.canal) && !deletedState[rid];
+      });
+
+      const segs = [...new Set(vis.map(d=>d.seg))];
+      const canais = [...new Set(vis.map(d=>d.canal))];
+      const segChips = segs.map(s=>`<span class="day-chip chip-${s.toLowerCase()}">${s}</span>`).join("");
+      const canalChips = canais.map(c=>`<span class="day-chip ${chipCanal(c)}">${c}</span>`).join("");
+      const countTxt = vis.length > 0
+        ? `<span class="day-count">${vis.length} disparo${vis.length>1?"s":""}</span>`
+        : `<span class="day-count" style="font-style:italic">sem disparo</span>`;
+
+      const rowsHtml = vis.map((d, dispIdx) => {
+        total++;
+        const id = `${wk.mes}_${wIdx}_${dia.data.replace('/','-')}_${dispIdx}`;
+        const isDone = doneState[id] ? "checked" : "";
+        const doneClass = doneState[id] ? " done" : "";
+
+        const alertaHtml = d.alerta ? `<div class="alerta">${WARN} ${d.alerta}</div>` : "";
+        const assuntoHtml = d.assunto ? `<div class="copy-assunto">Assunto: ${d.assunto}</div>` : "";
+        const copyText = copyState[id] !== undefined ? copyState[id] : d.copy;
+        const noteText = noteState[id] || "";
+        const hasNote  = noteText.length > 0;
+
+        return `<div class="row${doneClass}" id="row-${id}" draggable="true" ondragstart="dragStart(event,'${id}')" ondragover="dragOver(event)" ondrop="dragDrop(event,'${id}')" ondragend="dragEnd(event)">
+          <div class="drag-cell" title="Arrastar"><svg viewBox="0 0 12 14" fill="currentColor"><circle cx="4" cy="3" r="1.1"/><circle cx="8" cy="3" r="1.1"/><circle cx="4" cy="7" r="1.1"/><circle cx="8" cy="7" r="1.1"/><circle cx="4" cy="11" r="1.1"/><circle cx="8" cy="11" r="1.1"/></svg></div>
+          <div class="chk-cell"><input type="checkbox" ${isDone} onclick="toggleDone('${id}')"></div>
+          <div class="row-actions">
+            <button class="action-btn" title="Editar mensagem" onclick="toggleEdit('${id}')" id="btn-edit-${id}"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2.5l2 2L4 12H2v-2L9.5 2.5z"/></svg></button>
+            <button class="action-btn${hasNote?" active":""}" title="Anotações" onclick="toggleNote('${id}')" id="btn-note-${id}"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="10" height="10" rx="1.5"/><path d="M4.5 5h5M4.5 7.5h3"/></svg></button>
+            ${copyState[id]!==undefined?`<button class="action-btn" title="Restaurar texto original" onclick="restoreCopy('${id}')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5A5 5 0 1 1 3.5 9"/><path d="M2 2.5v3h3"/></svg></button>`:""}
+            <button class="action-btn del" title="Excluir disparo" onclick="deleteRow('${id}')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4h9M5.5 4V2.5h3V4M6 6.5v4M8 6.5v4M3.5 4l.7 7.5h5.6L10.5 4"/></svg></button>
+          </div>
+          <div class="cell"><span class="badge ${segClass(d.seg)}">${d.seg}</span></div>
+          <div class="cell"><span class="badge ${canalClass(d.canal)}">${ICONS[d.canal]} ${d.canal}</span>${alertaHtml}</div>
+          <div class="cell">${assuntoHtml}<div class="copy-body" id="copy-${id}">${copyText.replace(/\n/g,"<br>")}</div></div>
+        </div>
+        <div class="note-row${hasNote?" open":""}" id="note-row-${id}">
+          <div class="note-label-row">
+            <span class="note-label">Minhas anotações</span>
+            ${hasNote?`<button class="note-del-btn" title="Apagar anotação" onclick="deleteNote('${id}')">Apagar</button>`:""}
+          </div>
+          <textarea placeholder="Escreva suas observações aqui…" oninput="saveNote('${id}',this.value)">${noteText}</textarea>
+        </div>`;
+      }).join("");
+
+      const hasRows = vis.length > 0;
+      if(hasRows) wkVisible = true;
+
+      daysHtml += `<div class="day-block">
+        <div class="day-header${hasRows?" open":""}" onclick="toggleDay(this)">
+          <span class="day-date">${dia.data}</span>
+          <span class="day-weekday">${dia.diaSem}</span>
+          <div class="day-chips">${segChips}${canalChips}${countTxt}</div>
+          <span class="toggle-icon">▾</span>
+        </div>
+        ${hasRows ? `<div class="day-rows open">${rowsHtml}</div>` : ""}
+      </div>`;
+    });
+
+    if(!wkVisible) return;
+
+    if(wk.mes !== curMes){
+      if(curMes) html += `</div>`;
+      curMes = wk.mes;
+      const mesLabel = wk.mes==="jun"?"Junho 2026":"Julho 2026";
+      html += `<div class="month-block"><div class="month-header"><div class="month-title">${mesLabel}</div><div class="month-meta">${wk.mes==="jun"?"Jun · 2026":"Jul · 2026"}</div></div>`;
+    }
+
+    html += `<div class="week-block">
+      <div class="week-label">${wk.semana} <span class="week-tema">· ${wk.tema}</span> <span class="week-freq">${wk.freq}</span></div>
+      ${daysHtml}
+    </div>`;
+  });
+
+  if(curMes) html += `</div>`;
+
+  document.getElementById("app").innerHTML = html || `<div class="empty-state">Nenhum resultado para os filtros selecionados.</div>`;
+  document.getElementById("counter").innerHTML = `<span>${total}</span> disparos`;
+}
+
+window.toggleNote = function(id){
+  const noteRow = document.getElementById("note-row-"+id);
+  const btn = document.querySelector(`#row-${id} .action-btn[title="Anotações"]`);
+  if(!noteRow) return;
+  const isOpen = noteRow.classList.toggle("open");
+  if(isOpen) noteRow.querySelector("textarea").focus();
+  btn && btn.classList.toggle("active", isOpen || (noteState[id]||"").length > 0);
+};
+
+window.saveNote = function(id, val){
+  if(val.trim()) noteState[id] = val;
+  else delete noteState[id];
+  localStorage.setItem(NOTE_KEY, JSON.stringify(noteState));
+  const btn = document.querySelector(`#row-${id} .action-btn[title="Anotações"]`);
+  btn && btn.classList.toggle("active", !!noteState[id]);
+};
+
+window.deleteNote = function(id){
+  delete noteState[id];
+  localStorage.setItem(NOTE_KEY, JSON.stringify(noteState));
+  const noteRow = document.getElementById("note-row-"+id);
+  if(noteRow){
+    noteRow.querySelector("textarea").value = "";
+    noteRow.classList.remove("open");
+    // remove botão apagar
+    const delBtn = noteRow.querySelector(".note-del-btn");
+    if(delBtn) delBtn.remove();
+  }
+  const btn = document.querySelector(`#row-${id} .action-btn[title="Anotações"]`);
+  btn && btn.classList.remove("active");
+};
+
+window.restoreCopy = function(id){
+  if(!confirm("Restaurar o texto original? A sua edição será perdida.")) return;
+  delete copyState[id];
+  localStorage.setItem(COPY_KEY, JSON.stringify(copyState));
+  render();
+};
+
+window.deleteRow = function(id){
+  const wrapper = document.getElementById("row-"+id);
+  const noteRow = document.getElementById("note-row-"+id);
+  if(wrapper){
+    wrapper.style.transition = "opacity .25s, max-height .3s";
+    wrapper.style.opacity = "0";
+    wrapper.style.overflow = "hidden";
+    wrapper.style.maxHeight = wrapper.offsetHeight + "px";
+    setTimeout(()=>{ wrapper.style.maxHeight = "0"; wrapper.style.padding = "0"; }, 10);
+    if(noteRow){ noteRow.style.display = "none"; }
+    setTimeout(()=>{ wrapper.remove(); if(noteRow) noteRow.remove(); }, 320);
+  }
+  deletedState[id] = true;
+  localStorage.setItem(DELETED_KEY, JSON.stringify(deletedState));
+};
+
+// ─── Drag & Drop ───
+let dragSrcId = null;
+
+window.dragStart = function(e, id){
+  dragSrcId = id;
+  e.dataTransfer.effectAllowed = "move";
+  setTimeout(()=>{ const el = document.getElementById("row-"+id); if(el) el.classList.add("dragging"); }, 0);
+};
+
+window.dragOver = function(e){
+  e.preventDefault();
+  e.dataTransfer.dropEffect = "move";
+  const row = e.target.closest(".row");
+  if(row && row.id !== "row-"+dragSrcId){
+    document.querySelectorAll(".row.drag-over").forEach(r => r.classList.remove("drag-over"));
+    row.classList.add("drag-over");
+  }
+};
+
+window.dragDrop = function(e, targetId){
+  e.preventDefault();
+  if(!dragSrcId || dragSrcId === targetId) return;
+  const src = document.getElementById("row-"+dragSrcId);
+  const srcNote = document.getElementById("note-row-"+dragSrcId);
+  const tgt = document.getElementById("row-"+targetId);
+  if(!src || !tgt) return;
+  const parent = tgt.parentNode;
+  parent.insertBefore(src, tgt);
+  if(srcNote) parent.insertBefore(srcNote, tgt);
+  document.querySelectorAll(".row.drag-over").forEach(r => r.classList.remove("drag-over"));
+};
+
+window.dragEnd = function(e){
+  document.querySelectorAll(".row.dragging").forEach(r => r.classList.remove("dragging"));
+  document.querySelectorAll(".row.drag-over").forEach(r => r.classList.remove("drag-over"));
+  dragSrcId = null;
+};
+
+const SVG_EDIT = `<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2.5l2 2L4 12H2v-2L9.5 2.5z"/></svg>`;
+const SVG_SAVE = `<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3.5 3.5 5.5-6"/></svg>`;
+
+window.toggleEdit = function(id){
+  const el = document.getElementById("copy-"+id);
+  const btn = document.getElementById("btn-edit-"+id);
+  if(!el) return;
+  const isEditing = el.contentEditable === "true";
+  if(isEditing){
+    el.contentEditable = "false";
+    copyState[id] = el.innerText;
+    localStorage.setItem(COPY_KEY, JSON.stringify(copyState));
+    if(btn){ btn.innerHTML = SVG_EDIT; btn.classList.remove("editing"); btn.title = "Editar mensagem"; }
+  } else {
+    el.contentEditable = "true";
+    el.focus();
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    range.collapse(false);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    if(btn){ btn.innerHTML = SVG_SAVE; btn.classList.add("editing"); btn.title = "Salvar edição"; }
+  }
+};
+
+window.toggleDay = function(header){
+  const rows = header.nextElementSibling;
+  if(!rows || !rows.classList.contains("day-rows")) return;
+  const isOpen = header.classList.toggle("open");
+  rows.classList.toggle("open", isOpen);
+};
+
+document.getElementById("filterBar").addEventListener("click", e => {
+  const btn = e.target.closest(".fbtn[data-type]");
+  if(!btn) return;
+  const type = btn.dataset.type;
+  const val = btn.dataset[type];
+  if(state[type].has(val)){
+    if(state[type].size === 1) return;
+    state[type].delete(val);
+    btn.classList.remove("active");
+  } else {
+    state[type].add(val);
+    btn.classList.add("active");
+  }
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
