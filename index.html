@@ -4,373 +4,352 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cronograma CRM — Adiante Recebíveis · Jun–Jul 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f8f7f5;
+  --brand-blue:#0660FE;
+  --brand-navy:#193469;
+  --brand-white:#ffffff;
+
+  --bg:#f0f4ff;
   --bg2:#ffffff;
-  --bg3:#f1f0ee;
-  --bg4:#eae9e6;
-  --border:rgba(0,0,0,0.07);
-  --border2:rgba(0,0,0,0.11);
-  --border3:rgba(0,0,0,0.18);
-  --text:#111318;
-  --text2:#5c6068;
-  --text3:#9ea4ad;
-  --shadow-sm:0 1px 2px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.04);
-  --shadow:0 2px 12px rgba(0,0,0,0.08),0 1px 3px rgba(0,0,0,0.05);
+  --bg3:#e8eef8;
+  --bg4:#dde6f4;
 
-  --blue:#1d6fe0;   --blue-bg:rgba(29,111,224,0.07); --blue-bg2:rgba(29,111,224,0.13); --blue-border:rgba(29,111,224,0.25); --blue-text:#0d4fa8;
-  --coral:#d43b1c;  --coral-bg:rgba(212,59,28,0.07); --coral-bg2:rgba(212,59,28,0.13); --coral-border:rgba(212,59,28,0.25); --coral-text:#9a2510;
-  --purple:#6c4fd4; --purple-bg:rgba(108,79,212,0.07);--purple-bg2:rgba(108,79,212,0.13);--purple-border:rgba(108,79,212,0.25);--purple-text:#47309a;
-  --green:#1a7f4e;  --green-bg:rgba(26,127,78,0.07); --green-bg2:rgba(26,127,78,0.13); --green-border:rgba(26,127,78,0.25); --green-text:#0d5232;
-  --teal:#0e8a90;   --teal-bg:rgba(14,138,144,0.07); --teal-bg2:rgba(14,138,144,0.13); --teal-border:rgba(14,138,144,0.25); --teal-text:#0a5c60;
-  --amber:#a06900;  --amber-bg:rgba(160,105,0,0.07); --amber-bg2:rgba(160,105,0,0.13); --amber-border:rgba(160,105,0,0.25); --amber-text:#6d4700;
-  --warn:#c45c00;   --warn-bg:rgba(196,92,0,0.08);   --warn-border:rgba(196,92,0,0.28);
+  --border:rgba(6,96,254,0.10);
+  --border2:rgba(25,52,105,0.15);
+  --border3:rgba(25,52,105,0.28);
 
-  --radius:10px;--radius-sm:7px;--radius-xs:5px;
+  --text:#0d1b3e;
+  --text2:#3a5080;
+  --text3:#7a94bf;
+
+  --shadow-sm:0 1px 3px rgba(6,96,254,0.07),0 1px 6px rgba(25,52,105,0.04);
+  --shadow:0 4px 16px rgba(6,96,254,0.13),0 1px 4px rgba(25,52,105,0.08);
+  --shadow-card:0 2px 12px rgba(25,52,105,0.08),0 1px 3px rgba(6,96,254,0.05);
+
+  --carteira:#0660FE;  --carteira-bg:rgba(6,96,254,0.07);  --carteira-bg2:rgba(6,96,254,0.14);  --carteira-border:rgba(6,96,254,0.24);  --carteira-text:#0040cc;
+  --churn:#d4381c;     --churn-bg:rgba(212,56,28,0.07);    --churn-bg2:rgba(212,56,28,0.14);    --churn-border:rgba(212,56,28,0.26);    --churn-text:#9a2510;
+  --plus:#6c3fc4;      --plus-bg:rgba(108,63,196,0.07);    --plus-bg2:rgba(108,63,196,0.14);    --plus-border:rgba(108,63,196,0.26);    --plus-text:#47299a;
+
+  --email:#0f8c5c;     --email-bg:rgba(15,140,92,0.07);    --email-bg2:rgba(15,140,92,0.13);    --email-border:rgba(15,140,92,0.26);    --email-text:#0a5c3c;
+  --whats:#0e7a8a;     --whats-bg:rgba(14,122,138,0.07);   --whats-bg2:rgba(14,122,138,0.13);   --whats-border:rgba(14,122,138,0.26);   --whats-text:#0a5260;
+  --sms:#a06200;       --sms-bg:rgba(160,98,0,0.07);       --sms-bg2:rgba(160,98,0,0.13);       --sms-border:rgba(160,98,0,0.26);       --sms-text:#6e4300;
+
+  --warn:#c45c00;
+  --warn-bg:rgba(196,92,0,0.08);
+  --warn-border:rgba(196,92,0,0.27);
+
+  --radius:12px;--radius-sm:8px;--radius-xs:6px;
 }
 
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.6;min-height:100vh}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;min-height:100vh}
 
 /* ─── HEADER ─────────────────────── */
 .site-header{
   position:sticky;top:0;z-index:100;
-  background:rgba(248,247,245,0.92);
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border2);
-  padding:0 2rem;display:flex;align-items:center;gap:1.25rem;height:56px;
-  box-shadow:var(--shadow-sm);
+  background:var(--brand-navy);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  padding:0 2rem;display:flex;align-items:center;gap:1.5rem;height:60px;
+  box-shadow:0 2px 24px rgba(25,52,105,0.45);
 }
-.header-brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.header-brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .header-logo{
-  width:30px;height:30px;
-  background:linear-gradient(135deg,#1d6fe0 0%,#0d4fa8 100%);
-  border-radius:8px;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 1px 4px rgba(29,111,224,0.3);
+  width:34px;height:34px;
+  background:var(--brand-blue);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 10px rgba(6,96,254,0.55);flex-shrink:0;
 }
-.header-logo svg{width:16px;height:16px}
-.brand-name{font-family:'Fraunces',serif;font-size:15px;font-weight:500;color:var(--text);letter-spacing:-.02em;line-height:1.2}
-.brand-sub{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;letter-spacing:.04em}
+.header-logo svg{width:18px;height:18px}
+.brand-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.2}
+.brand-sub{font-size:10px;color:rgba(255,255,255,0.45);font-family:'DM Mono',monospace;letter-spacing:.06em}
 
-/* ─── FILTER BAR ─────────────────── */
-.filter-bar{display:flex;align-items:center;gap:5px;flex:1;overflow-x:auto;scrollbar-width:none}
-.filter-bar::-webkit-scrollbar{display:none}
-.filter-sep{width:1px;height:16px;background:var(--border2);margin:0 4px;flex-shrink:0}
-.filter-label{font-size:9px;font-family:'DM Mono',monospace;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap;flex-shrink:0}
+/* ─── MES FILTER ─────────────────── */
+.mes-filter{display:flex;align-items:center;gap:6px;flex:1}
+.filter-label{font-size:9px;font-family:'DM Mono',monospace;color:rgba(255,255,255,0.38);text-transform:uppercase;letter-spacing:.14em;white-space:nowrap;flex-shrink:0}
 .fbtn{
-  font-size:11px;font-weight:500;padding:3px 10px;
-  border-radius:20px;border:1px solid var(--border2);
-  background:var(--bg2);color:var(--text3);cursor:pointer;
+  font-size:11.5px;font-weight:600;padding:5px 14px;
+  border-radius:20px;border:1px solid rgba(255,255,255,0.14);
+  background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.5);cursor:pointer;
   white-space:nowrap;transition:all .15s;flex-shrink:0;
-  box-shadow:var(--shadow-sm);
 }
-.fbtn:hover{color:var(--text2);border-color:var(--border3);background:var(--bg3)}
-.fbtn.active[data-seg="Carteira"]{background:var(--blue-bg2);color:var(--blue-text);border-color:var(--blue-border)}
-.fbtn.active[data-seg="Churn"]{background:var(--coral-bg2);color:var(--coral-text);border-color:var(--coral-border)}
-.fbtn.active[data-seg="Plus"]{background:var(--purple-bg2);color:var(--purple-text);border-color:var(--purple-border)}
-.fbtn.active[data-canal="E-mail"]{background:var(--green-bg2);color:var(--green-text);border-color:var(--green-border)}
-.fbtn.active[data-canal="WhatsApp"]{background:var(--teal-bg2);color:var(--teal-text);border-color:var(--teal-border)}
-.fbtn.active[data-canal="SMS"]{background:var(--amber-bg2);color:var(--amber-text);border-color:var(--amber-border)}
-.fbtn.active[data-mes]{background:rgba(0,0,0,0.07);color:var(--text);border-color:var(--border3)}
-.count-chip{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);white-space:nowrap;flex-shrink:0}
-.count-chip span{color:var(--text2);font-weight:500}
-.export-btn{
-  font-size:10.5px;font-family:'DM Mono',monospace;padding:4px 12px;
-  border-radius:var(--radius-sm);border:1px solid var(--border2);
-  background:var(--bg2);color:var(--text2);cursor:pointer;flex-shrink:0;
-  transition:all .15s;box-shadow:var(--shadow-sm);
+.fbtn:hover{background:rgba(255,255,255,0.13);border-color:rgba(255,255,255,0.28);color:rgba(255,255,255,0.85)}
+.fbtn.active{background:var(--brand-blue);border-color:rgba(6,96,254,0.7);color:#fff;box-shadow:0 2px 8px rgba(6,96,254,0.4)}
+.count-chip{font-size:10px;font-family:'DM Mono',monospace;color:rgba(255,255,255,0.38);white-space:nowrap;margin-left:auto;flex-shrink:0}
+.count-chip span{color:rgba(255,255,255,0.8);font-weight:600}
+
+/* ─── BARRA DE PROGRESSO ─────────── */
+.progress-bar{
+  background:var(--brand-navy);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:9px 2rem;
+  display:flex;align-items:center;gap:16px;
 }
-.export-btn:hover{border-color:var(--border3);background:var(--bg3);color:var(--text)}
+.progress-track{flex:1;height:5px;background:rgba(255,255,255,0.11);border-radius:10px;overflow:hidden}
+.progress-fill{height:100%;background:var(--brand-blue);border-radius:10px;transition:width .5s cubic-bezier(.4,0,.2,1);box-shadow:0 0 10px rgba(6,96,254,0.65)}
+.progress-text{font-size:10px;font-family:'DM Mono',monospace;color:rgba(255,255,255,0.45);white-space:nowrap;flex-shrink:0}
+.progress-text b{color:rgba(255,255,255,0.85)}
 
 /* ─── MAIN ───────────────────────── */
-.main{max-width:1300px;margin:0 auto;padding:2.5rem 2rem 5rem}
+.main{max-width:1280px;margin:0 auto;padding:2.5rem 2rem 5rem}
 
 /* ─── MONTH ──────────────────────── */
 .month-block{margin-bottom:3.5rem}
-.month-header{
-  display:flex;align-items:center;gap:14px;
-  margin-bottom:1.75rem;padding-bottom:12px;
-  border-bottom:2px solid var(--border2);
-}
-.month-title{font-family:'Fraunces',serif;font-size:28px;font-weight:300;color:var(--text);letter-spacing:-.03em;line-height:1}
-.month-meta{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);letter-spacing:.08em;padding:3px 9px;border:1px solid var(--border2);border-radius:20px;background:var(--bg3)}
+.month-header{display:flex;align-items:center;gap:14px;margin-bottom:2rem;padding-bottom:14px;border-bottom:2px solid var(--border2)}
+.month-title{font-size:30px;font-weight:700;color:var(--brand-navy);letter-spacing:-.04em;line-height:1}
+.month-meta{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);letter-spacing:.1em;padding:4px 11px;border:1px solid var(--border2);border-radius:20px;background:var(--bg2)}
 
 /* ─── WEEK ───────────────────────── */
 .week-block{margin-bottom:2rem}
 .week-label{
   font-size:9px;font-family:'DM Mono',monospace;color:var(--text3);
-  text-transform:uppercase;letter-spacing:.14em;
-  margin-bottom:.85rem;display:flex;align-items:center;gap:10px;
+  text-transform:uppercase;letter-spacing:.16em;
+  margin-bottom:1rem;display:flex;align-items:center;gap:10px;
 }
-.week-label::after{content:'';flex:1;height:1px;background:var(--border2)}
-.week-tema{font-family:'DM Mono',monospace;color:var(--text2);font-weight:500;letter-spacing:.04em;text-transform:none}
-.week-freq{
-  font-size:9px;font-family:'DM Mono',monospace;color:var(--text3);
-  background:var(--bg3);border:1px solid var(--border2);
-  border-radius:var(--radius-xs);padding:1px 8px;white-space:nowrap;
-}
+.week-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.week-tema{font-family:'DM Mono',monospace;color:var(--brand-blue);font-weight:600;letter-spacing:.04em;text-transform:none}
+.week-freq{font-size:9px;font-family:'DM Mono',monospace;color:var(--text3);background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-xs);padding:2px 9px;white-space:nowrap}
 
 /* ─── DAY BLOCK ──────────────────── */
-.day-block{margin-bottom:6px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
+.day-block{margin-bottom:8px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card)}
 .day-header{
-  display:flex;align-items:center;gap:12px;padding:10px 16px;
-  background:var(--bg3);border:1px solid var(--border2);
+  display:flex;align-items:center;gap:12px;padding:13px 18px;
+  background:var(--bg2);border:1px solid var(--border2);
   border-radius:var(--radius);
   cursor:pointer;user-select:none;transition:all .15s;
 }
-.day-header:hover{background:var(--bg4);border-color:var(--border3);box-shadow:var(--shadow)}
+.day-header:hover{background:var(--bg3);border-color:var(--border3);box-shadow:var(--shadow)}
 .day-header.open{border-radius:var(--radius) var(--radius) 0 0;border-bottom-color:var(--border)}
-.day-date{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--text);min-width:52px;letter-spacing:.02em}
-.day-weekday{font-size:11px;color:var(--text3);min-width:60px}
+
+/* HOJE */
+.day-block.hoje .day-header{
+  border-color:var(--brand-blue);border-width:2px;
+  background:rgba(6,96,254,0.04);
+}
+.day-block.hoje .day-header:hover{background:rgba(6,96,254,0.07)}
+.day-block.hoje .day-date{color:var(--brand-blue)}
+.hoje-badge{
+  font-size:9px;font-family:'DM Mono',monospace;
+  background:var(--brand-blue);color:#fff;
+  padding:2px 9px;border-radius:20px;font-weight:700;letter-spacing:.07em;
+  flex-shrink:0;
+}
+/* PASSADO */
+.day-block.passado .day-header{background:var(--bg3);opacity:.72}
+.day-block.passado .day-date{color:var(--text3)}
+
+.day-date{font-family:'DM Mono',monospace;font-size:13px;font-weight:600;color:var(--brand-navy);min-width:54px;letter-spacing:.02em}
+.day-weekday{font-size:11px;color:var(--text3);font-weight:500;min-width:62px}
 .day-chips{display:flex;gap:4px;flex-wrap:wrap;margin-left:2px;flex:1}
-.day-chip{font-size:9px;padding:2px 8px;border-radius:10px;font-weight:500}
-.chip-carteira{background:var(--blue-bg);color:var(--blue-text);border:1px solid var(--blue-border)}
-.chip-churn{background:var(--coral-bg);color:var(--coral-text);border:1px solid var(--coral-border)}
-.chip-plus{background:var(--purple-bg);color:var(--purple-text);border:1px solid var(--purple-border)}
-.chip-email{background:var(--green-bg);color:var(--green-text);border:1px solid var(--green-border)}
-.chip-whats{background:var(--teal-bg);color:var(--teal-text);border:1px solid var(--teal-border)}
-.chip-sms{background:var(--amber-bg);color:var(--amber-text);border:1px solid var(--amber-border)}
-.day-count{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);white-space:nowrap}
-.toggle-icon{font-size:11px;color:var(--text3);transition:transform .2s cubic-bezier(.4,0,.2,1);flex-shrink:0}
+.day-chip{font-size:9px;padding:2px 9px;border-radius:10px;font-weight:600;letter-spacing:.02em}
+.chip-carteira{background:var(--carteira-bg);color:var(--carteira-text);border:1px solid var(--carteira-border)}
+.chip-churn{background:var(--churn-bg);color:var(--churn-text);border:1px solid var(--churn-border)}
+.chip-plus{background:var(--plus-bg);color:var(--plus-text);border:1px solid var(--plus-border)}
+.chip-email{background:var(--email-bg);color:var(--email-text);border:1px solid var(--email-border)}
+.chip-whats{background:var(--whats-bg);color:var(--whats-text);border:1px solid var(--whats-border)}
+.chip-sms{background:var(--sms-bg);color:var(--sms-text);border:1px solid var(--sms-border)}
+.day-count{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);white-space:nowrap;font-weight:500}
+.toggle-icon{font-size:12px;color:var(--text3);transition:transform .2s cubic-bezier(.4,0,.2,1);flex-shrink:0}
 .day-header.open .toggle-icon{transform:rotate(180deg)}
 .day-rows{border:1px solid var(--border2);border-top:none;border-radius:0 0 var(--radius) var(--radius);overflow:hidden;display:none}
 .day-rows.open{display:block}
 
 /* ─── FERIADO ────────────────────── */
 .feriado{
-  display:flex;align-items:center;gap:10px;padding:10px 16px;
+  display:flex;align-items:center;gap:10px;padding:13px 18px;
   background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);
-  font-size:12px;color:var(--text3);font-style:italic;margin-bottom:6px;
+  font-size:12px;color:var(--text3);font-style:italic;margin-bottom:8px;font-weight:500;
 }
 
 /* ─── ROW ────────────────────────── */
 .row{
-  display:grid;grid-template-columns:36px 46px 40px 108px 108px 1fr;
+  display:grid;
+  grid-template-columns:46px 42px 114px 114px 1fr;
   border-top:1px solid var(--border);background:var(--bg2);
   transition:background .12s,opacity .2s;
-  cursor:default;
 }
 .row:first-child{border-top:none}
-.row:hover{background:#f9f8ff}
-.row.done{background:var(--bg3);opacity:0.5}
-.row.done .copy-body{text-decoration:line-through}
-.row.dragging{opacity:0.35;background:var(--blue-bg)}
-.row.drag-over{border-top:2px solid var(--blue)}
-.cell{padding:12px 14px;border-right:1px solid var(--border)}
+.row:hover{background:rgba(6,96,254,0.025)}
+.row.done{background:var(--bg3);opacity:.46}
+.row.done .copy-body{text-decoration:line-through;color:var(--text3)}
+
+.cell{padding:13px 15px;border-right:1px solid var(--border)}
 .cell:last-child{border-right:none}
 
-/* drag handle */
-.drag-cell{display:flex;align-items:center;justify-content:center;padding:0 6px;border-right:1px solid var(--border);cursor:grab;color:var(--text3);opacity:0}
-.row:hover .drag-cell{opacity:1}
-.drag-cell:active{cursor:grabbing}
-.drag-cell svg{width:12px;height:12px}
-
 /* checkbox */
-.chk-cell{display:flex;align-items:flex-start;justify-content:center;padding:14px 0;border-right:1px solid var(--border)}
-.chk-cell input{width:14px;height:14px;cursor:pointer;accent-color:var(--green)}
+.chk-cell{display:flex;align-items:flex-start;justify-content:center;padding:15px 0;border-right:1px solid var(--border)}
+.chk-cell input{width:15px;height:15px;cursor:pointer;accent-color:var(--brand-blue)}
 
 /* ─── ACTION BUTTONS ─────────────── */
 .row-actions{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:2px;padding:6px 5px;border-right:1px solid var(--border);
+  gap:3px;padding:6px 5px;border-right:1px solid var(--border);
 }
 .action-btn{
   background:none;border:1px solid transparent;cursor:pointer;
-  width:24px;height:24px;border-radius:var(--radius-xs);
-  line-height:1;color:var(--text3);
-  transition:all .15s;display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
+  width:26px;height:26px;border-radius:var(--radius-xs);
+  color:var(--text3);transition:all .15s;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
 .action-btn svg{width:13px;height:13px;display:block;flex-shrink:0}
 .action-btn:hover{color:var(--text2);background:var(--bg3);border-color:var(--border2)}
-.action-btn.active{background:var(--amber-bg2);border-color:var(--amber-border);color:var(--amber-text)}
-.action-btn.editing{background:var(--green-bg2);border-color:var(--green-border);color:var(--green-text)}
-.action-btn.del{color:var(--coral-text);opacity:0}
+.action-btn.active{background:var(--sms-bg2);border-color:var(--sms-border);color:var(--sms-text)}
+.action-btn.editing{background:var(--email-bg2);border-color:var(--email-border);color:var(--email-text)}
+.action-btn.copied{background:var(--email-bg2);border-color:var(--email-border);color:var(--email-text)}
+.action-btn.del{color:var(--churn-text);opacity:0}
 .row:hover .action-btn.del{opacity:1}
-.action-btn.del:hover{background:var(--coral-bg2);border-color:var(--coral-border)}
+.action-btn.del:hover{background:var(--churn-bg2);border-color:var(--churn-border)}
 
 /* ─── BADGES ─────────────────────── */
 .badge{
   display:inline-flex;align-items:center;gap:4px;
-  font-size:10px;font-weight:500;padding:3px 9px;
-  border-radius:20px;width:fit-content;
+  font-size:10px;font-weight:600;padding:3px 10px;
+  border-radius:20px;width:fit-content;letter-spacing:.01em;
 }
 .badge svg{width:10px;height:10px;flex-shrink:0}
-.badge-carteira{background:var(--blue-bg);color:var(--blue-text);border:1px solid var(--blue-border)}
-.badge-churn{background:var(--coral-bg);color:var(--coral-text);border:1px solid var(--coral-border)}
-.badge-plus{background:var(--purple-bg);color:var(--purple-text);border:1px solid var(--purple-border)}
-.badge-email{background:var(--green-bg);color:var(--green-text);border:1px solid var(--green-border)}
-.badge-whats{background:var(--teal-bg);color:var(--teal-text);border:1px solid var(--teal-border)}
-.badge-sms{background:var(--amber-bg);color:var(--amber-text);border:1px solid var(--amber-border)}
+.badge-carteira{background:var(--carteira-bg);color:var(--carteira-text);border:1px solid var(--carteira-border)}
+.badge-churn{background:var(--churn-bg);color:var(--churn-text);border:1px solid var(--churn-border)}
+.badge-plus{background:var(--plus-bg);color:var(--plus-text);border:1px solid var(--plus-border)}
+.badge-email{background:var(--email-bg);color:var(--email-text);border:1px solid var(--email-border)}
+.badge-whats{background:var(--whats-bg);color:var(--whats-text);border:1px solid var(--whats-border)}
+.badge-sms{background:var(--sms-bg);color:var(--sms-text);border:1px solid var(--sms-border)}
 
 /* ─── COPY CONTENT ───────────────── */
-.copy-assunto{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);margin-bottom:5px;letter-spacing:.02em}
-.copy-body{font-size:13px;color:var(--text);line-height:1.6;white-space:pre-line}
+.copy-assunto{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);margin-bottom:5px;letter-spacing:.02em;font-weight:500}
+.copy-body{font-size:13px;color:var(--text);line-height:1.65;white-space:pre-line}
 .alerta{
   display:inline-flex;align-items:center;gap:4px;
-  font-size:9.5px;font-weight:500;padding:2px 8px;
+  font-size:9.5px;font-weight:600;padding:2px 9px;
   border-radius:20px;background:var(--warn-bg);color:var(--warn);
-  border:1px solid var(--warn-border);margin-top:4px;width:fit-content;
+  border:1px solid var(--warn-border);margin-top:5px;width:fit-content;
 }
 
 /* ─── NOTES ──────────────────────── */
 .note-row{
-  background:#fffef5;
-  border-top:1px solid rgba(160,105,0,0.15);
-  padding:10px 14px 12px;display:none;
+  background:rgba(160,98,0,0.04);
+  border-top:1px solid rgba(160,98,0,0.13);
+  padding:11px 15px 13px;display:none;
 }
 .note-row.open{display:block}
-.note-label-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.note-label{font-size:9px;font-family:'DM Mono',monospace;color:var(--amber-text);text-transform:uppercase;letter-spacing:.1em}
+.note-label-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+.note-label{font-size:9px;font-family:'DM Mono',monospace;color:var(--sms-text);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
 .note-del-btn{
-  font-size:10px;font-family:'DM Sans',sans-serif;color:var(--coral-text);
-  background:none;border:1px solid var(--coral-border);border-radius:20px;
-  padding:1px 9px;cursor:pointer;transition:all .15s;
+  font-size:10px;font-family:'Inter',sans-serif;color:var(--churn-text);
+  background:none;border:1px solid var(--churn-border);border-radius:20px;
+  padding:2px 10px;cursor:pointer;transition:all .15s;font-weight:500;
 }
-.note-del-btn:hover{background:var(--coral-bg);}
+.note-del-btn:hover{background:var(--churn-bg)}
 .note-row textarea{
   width:100%;min-height:72px;resize:vertical;
-  font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);
-  background:#ffffff;border:1px solid var(--amber-border);
-  border-radius:var(--radius-sm);padding:9px 11px;outline:none;line-height:1.6;
+  font-family:'Inter',sans-serif;font-size:13px;color:var(--text);
+  background:#fff;border:1px solid rgba(160,98,0,0.27);
+  border-radius:var(--radius-sm);padding:10px 12px;outline:none;line-height:1.6;
   transition:border-color .15s,box-shadow .15s;
-  box-shadow:var(--shadow-sm);
 }
-.note-row textarea:focus{border-color:var(--amber);box-shadow:0 0 0 3px var(--amber-bg)}
+.note-row textarea:focus{border-color:var(--sms);box-shadow:0 0 0 3px var(--sms-bg)}
 .note-row textarea::placeholder{color:var(--text3);font-style:italic}
 
 /* ─── EDIT MODE ──────────────────── */
-.copy-body[contenteditable="true"]{outline:none;cursor:text;}
+.copy-body[contenteditable="true"]{outline:none;cursor:text;background:rgba(6,96,254,0.04);border-radius:4px;padding:2px 4px}
 
 /* ─── MISC ───────────────────────── */
-.no-disp{font-size:12px;color:var(--text3);font-style:italic;padding:12px 14px;background:var(--bg2)}
 .empty-state{text-align:center;padding:5rem;color:var(--text3);font-size:13px}
 
 /* ─── ADD DISPARO ────────────────── */
 .add-disparo-wrap{background:var(--bg2)}
 .add-disparo-btn{
-  display:flex;align-items:center;gap:7px;
-  width:100%;padding:10px 16px;
+  display:flex;align-items:center;gap:8px;
+  width:100%;padding:11px 18px;
   background:none;border:none;border-top:1px solid var(--border);
-  color:var(--text3);font-size:11.5px;font-family:'DM Sans',sans-serif;
+  color:var(--text3);font-size:12px;font-family:'Inter',sans-serif;font-weight:500;
   cursor:pointer;transition:all .15s;text-align:left;
 }
-.add-disparo-btn svg{width:13px;height:13px;flex-shrink:0;opacity:.7}
-.add-disparo-btn:hover{background:var(--bg3);color:var(--blue-text)}
+.add-disparo-btn svg{width:14px;height:14px;flex-shrink:0;opacity:.55}
+.add-disparo-btn:hover{background:var(--carteira-bg);color:var(--carteira-text)}
 .add-disparo-btn:hover svg{opacity:1}
 
-.add-form{
-  display:none;padding:18px 16px 16px;
-  background:var(--bg3);border-top:1px solid var(--border2);
-  animation:slideDown .18s ease;
-}
+.add-form{display:none;padding:18px 18px 16px;background:var(--bg3);border-top:1px solid var(--border2);animation:slideDown .18s ease}
 @keyframes slideDown{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
 .add-form.open{display:block}
-
-.add-form-grid{
-  display:grid;grid-template-columns:1fr 1fr 2fr;
-  gap:10px;margin-bottom:10px;
-}
+.add-form-grid{display:grid;grid-template-columns:1fr 1fr 2fr;gap:10px;margin-bottom:10px}
 .add-form-field{display:flex;flex-direction:column;gap:5px}
-.add-form-field label,.add-form-msg label{
-  font-size:9px;font-family:'DM Mono',monospace;
-  color:var(--text3);text-transform:uppercase;letter-spacing:.12em;
-}
+.add-form-field label,.add-form-msg label{font-size:9px;font-family:'DM Mono',monospace;color:var(--text3);text-transform:uppercase;letter-spacing:.14em;font-weight:600}
 .add-form select,.add-form input[type=text]{
-  padding:7px 10px;
-  border:1px solid var(--border2);border-radius:var(--radius-sm);
+  padding:8px 10px;border:1px solid var(--border2);border-radius:var(--radius-sm);
   background:var(--bg2);color:var(--text);
-  font-family:'DM Sans',sans-serif;font-size:12.5px;
+  font-family:'Inter',sans-serif;font-size:12.5px;font-weight:500;
   outline:none;transition:border-color .15s,box-shadow .15s;
 }
-.add-form select:focus,.add-form input[type=text]:focus{
-  border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-bg2);
-}
-
+.add-form select:focus,.add-form input[type=text]:focus{border-color:var(--brand-blue);box-shadow:0 0 0 3px rgba(6,96,254,0.11)}
 .add-form-msg{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
 .add-form textarea{
-  width:100%;min-height:76px;resize:vertical;
-  padding:9px 10px;border:1px solid var(--border2);border-radius:var(--radius-sm);
+  width:100%;min-height:76px;resize:vertical;padding:10px 11px;
+  border:1px solid var(--border2);border-radius:var(--radius-sm);
   background:var(--bg2);color:var(--text);
-  font-family:'DM Sans',sans-serif;font-size:12.5px;
+  font-family:'Inter',sans-serif;font-size:12.5px;
   outline:none;line-height:1.6;transition:border-color .15s,box-shadow .15s;
 }
-.add-form textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-bg2)}
+.add-form textarea:focus{border-color:var(--brand-blue);box-shadow:0 0 0 3px rgba(6,96,254,0.11)}
 .add-form textarea::placeholder,.add-form input::placeholder{color:var(--text3)}
-
-.add-form-actions{display:flex;gap:7px;justify-content:flex-end}
+.add-form-actions{display:flex;gap:8px;justify-content:flex-end}
 .add-form-save{
-  padding:7px 18px;border-radius:var(--radius-sm);border:none;cursor:pointer;
-  background:var(--blue);color:#fff;
-  font-size:12px;font-family:'DM Sans',sans-serif;font-weight:500;
+  padding:8px 20px;border-radius:var(--radius-sm);border:none;cursor:pointer;
+  background:var(--brand-blue);color:#fff;
+  font-size:12px;font-family:'Inter',sans-serif;font-weight:600;
   transition:opacity .15s,box-shadow .15s;
-  box-shadow:0 1px 4px rgba(29,111,224,.3);
+  box-shadow:0 2px 8px rgba(6,96,254,0.35);
 }
-.add-form-save:hover{opacity:.88;box-shadow:0 2px 8px rgba(29,111,224,.4)}
+.add-form-save:hover{opacity:.88;box-shadow:0 4px 14px rgba(6,96,254,0.45)}
 .add-form-cancel{
-  padding:7px 14px;border-radius:var(--radius-sm);
+  padding:8px 15px;border-radius:var(--radius-sm);
   border:1px solid var(--border2);cursor:pointer;
   background:transparent;color:var(--text2);
-  font-size:12px;font-family:'DM Sans',sans-serif;
+  font-size:12px;font-family:'Inter',sans-serif;font-weight:500;
   transition:all .15s;
 }
 .add-form-cancel:hover{background:var(--bg4);border-color:var(--border3)}
 
 @media(max-width:700px){.add-form-grid{grid-template-columns:1fr 1fr}}
-
-@media print{
-  .site-header{position:static;box-shadow:none}
-  .filter-bar,.export-btn{display:none}
-  .day-rows{display:block!important}
-  .row{break-inside:avoid}
-  .note-row{display:block!important}
-  .row-actions{display:none}
-}
 @media(max-width:900px){
-  .row{grid-template-columns:28px 42px 36px 90px 1fr}
-  .row .cell:nth-child(5){display:none}
+  .row{grid-template-columns:42px 38px 96px 1fr}
+  .row .cell:nth-child(4){display:none}
   .main{padding:1.5rem 1rem 4rem}
 }
 @media(max-width:600px){
-  .row{grid-template-columns:28px 38px 34px 1fr}
-  .row .cell:nth-child(4){display:none}
+  .row{grid-template-columns:38px 34px 1fr}
+  .row .cell:nth-child(3),.row .cell:nth-child(4){display:none}
   .main{padding:1rem 1rem 3rem}
   .site-header{flex-wrap:wrap;height:auto;padding:.75rem 1rem;gap:.75rem}
-  .month-title{font-size:22px}
+  .month-title{font-size:24px}
 }
 </style>
 </head>
 <body>
 <header class="site-header">
   <div class="header-brand">
-    <div class="header-logo"><svg viewBox="0 0 16 16" fill="none"><path d="M3 12L8 4L13 12H3Z" fill="white" fill-opacity=".9"/></svg></div>
+    <div class="header-logo">
+      <svg viewBox="0 0 18 18" fill="none">
+        <path d="M9 2L16 15H2L9 2Z" fill="white" fill-opacity=".95"/>
+      </svg>
+    </div>
     <div>
       <div class="brand-name">Adiante Recebíveis</div>
       <div class="brand-sub">Cronograma CRM · Jun–Jul 2026</div>
     </div>
   </div>
-  <div class="filter-bar" id="filterBar">
+  <div class="mes-filter" id="mesFilter">
     <span class="filter-label">Mês</span>
-    <button class="fbtn active" data-type="mes" data-mes="jun">Junho</button>
-    <button class="fbtn active" data-type="mes" data-mes="jul">Julho</button>
-    <div class="filter-sep"></div>
-    <span class="filter-label">Seg.</span>
-    <button class="fbtn active" data-type="seg" data-seg="Carteira">Carteira</button>
-    <button class="fbtn active" data-type="seg" data-seg="Churn">Churn</button>
-    <button class="fbtn active" data-type="seg" data-seg="Plus">Plus</button>
-    <div class="filter-sep"></div>
-    <span class="filter-label">Canal</span>
-    <button class="fbtn active" data-type="canal" data-canal="E-mail">E-mail</button>
-    <button class="fbtn active" data-type="canal" data-canal="WhatsApp">WhatsApp</button>
-    <button class="fbtn active" data-type="canal" data-canal="SMS">SMS</button>
-    <div class="filter-sep"></div>
+    <button class="fbtn active" data-mes="jun">Junho</button>
+    <button class="fbtn active" data-mes="jul">Julho</button>
     <div class="count-chip" id="counter">— disparos</div>
   </div>
-  <button class="export-btn" onclick="window.print()">↓ imprimir</button>
 </header>
+<div class="progress-bar">
+  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="progress-text" id="progressText"><b>0</b> de <b id="progressTotal">0</b> disparos concluídos (0%)</div>
+</div>
 
 <main class="main" id="app"></main>
 
@@ -594,50 +573,104 @@ const WEEKS = [
 
 ];
 
+// ─── Data de hoje ───
+const _hoje = new Date();
+const _todayStr = `${String(_hoje.getDate()).padStart(2,'0')}/${String(_hoje.getMonth()+1).padStart(2,'0')}`;
+
+function isToday(data){ return data === _todayStr; }
+function isPast(data){
+  const [dd,mm] = data.split('/').map(Number);
+  const hd = _hoje.getDate(), hm = _hoje.getMonth()+1;
+  return mm < hm || (mm === hm && dd < hd);
+}
+
 // ─── Persistência ───
 const DONE_KEY    = "crm_done_state";
 const NOTE_KEY    = "crm_notes";
 const COPY_KEY    = "crm_copies";
 const DELETED_KEY = "crm_deleted";
-const ORDER_KEY   = "crm_order";
 const ADDED_KEY   = "crm_added";
 let doneState    = JSON.parse(localStorage.getItem(DONE_KEY)    || "{}");
 let noteState    = JSON.parse(localStorage.getItem(NOTE_KEY)    || "{}");
 let copyState    = JSON.parse(localStorage.getItem(COPY_KEY)    || "{}");
 let deletedState = JSON.parse(localStorage.getItem(DELETED_KEY) || "{}");
-let orderState   = JSON.parse(localStorage.getItem(ORDER_KEY)   || "{}");
 let addedState   = JSON.parse(localStorage.getItem(ADDED_KEY)   || "{}");
 
-window.toggleDone = function(id) {
-  if(doneState[id]) delete doneState[id];
-  else doneState[id] = true;
+window.toggleDone = function(id){
+  if(doneState[id]) delete doneState[id]; else doneState[id] = true;
   localStorage.setItem(DONE_KEY, JSON.stringify(doneState));
   const row = document.getElementById("row-"+id);
   if(row) row.classList.toggle("done", !!doneState[id]);
+  updateProgress();
 };
 
-// ─── Estado dos filtros ───
-const state = {
-  mes: new Set(["jun","jul"]),
-  seg: new Set(["Carteira","Churn","Plus"]),
-  canal: new Set(["E-mail","WhatsApp","SMS"])
-};
+// ─── Filtro de mês ───
+const state = { mes: new Set(["jun","jul"]) };
 
+// ─── Ícones ───
 const ICONS = {
   "E-mail":`<svg viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="8" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M1.5 3L6 7L10.5 3" stroke="currentColor" stroke-width="1.2"/></svg>`,
   "WhatsApp":`<svg viewBox="0 0 12 12" fill="none"><path d="M6 1C3.24 1 1 3.24 1 6c0 .88.24 1.7.65 2.42L1 11l2.65-.64A4.97 4.97 0 006 11c2.76 0 5-2.24 5-5S8.76 1 6 1z" stroke="currentColor" stroke-width="1.1"/><path d="M4 5.5s.38.75 1.13 1.5S6.75 8 6.75 8l.75-.75L6.38 6.13l-.75.37-.38-.38L6.13 5.25 5 4.25 4 5.5z" fill="currentColor"/></svg>`,
   "SMS":`<svg viewBox="0 0 12 12" fill="none"><rect x="1" y="1.5" width="10" height="7" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M3.5 10.5L4.5 8h3l1 2.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><path d="M3.5 4.5h5M3.5 6h3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>`,
 };
 const WARN = `<svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M4.5 1L8 8H1L4.5 1Z" stroke="currentColor" stroke-width="1.1"/><path d="M4.5 3.5V5.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><circle cx="4.5" cy="6.8" r=".4" fill="currentColor"/></svg>`;
+const SVG_COPY = `<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="8" height="9.5" rx="1.2"/><path d="M4 3V2.5A1.5 1.5 0 0 0 2.5 4H2"/><rect x="2" y="4" width="7" height="8" rx="1.2"/></svg>`;
+const SVG_CHECK_SM = `<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3.5 3.5 5.5-6"/></svg>`;
+const SVG_EDIT = `<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2.5l2 2L4 12H2v-2L9.5 2.5z"/></svg>`;
+const SVG_SAVE = `<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3.5 3.5 5.5-6"/></svg>`;
 
 function segClass(s){ return s==="Carteira"?"badge-carteira":s==="Churn"?"badge-churn":"badge-plus"; }
 function canalClass(c){ return c==="E-mail"?"badge-email":c==="WhatsApp"?"badge-whats":"badge-sms"; }
 function chipCanal(c){ return c==="E-mail"?"chip-email":c==="WhatsApp"?"chip-whats":"chip-sms"; }
 
+let _totalDisparos = 0;
+
+function updateProgress(){
+  const done = Object.keys(doneState).filter(k=>doneState[k]).length;
+  const total = _totalDisparos;
+  const pct = total > 0 ? Math.round((done/total)*100) : 0;
+  const fill = document.getElementById("progressFill");
+  const text = document.getElementById("progressText");
+  if(fill) fill.style.width = pct+"%";
+  if(text) text.innerHTML = `<b>${done}</b> de <b>${total}</b> disparos concluídos (${pct}%)`;
+}
+
+function makeRowHtml(d, id, delFn){
+  const isDone = doneState[id] ? "checked" : "";
+  const doneClass = doneState[id] ? " done" : "";
+  const alertaHtml = d.alerta ? `<div class="alerta">${WARN} ${d.alerta}</div>` : "";
+  const assuntoHtml = d.assunto ? `<div class="copy-assunto">Assunto: ${d.assunto}</div>` : "";
+  const copyText = copyState[id] !== undefined ? copyState[id] : d.copy;
+  const noteText = noteState[id] || "";
+  const hasNote = noteText.length > 0;
+  return `<div class="row${doneClass}" id="row-${id}">
+    <div class="chk-cell"><input type="checkbox" ${isDone} onclick="toggleDone('${id}')"></div>
+    <div class="row-actions">
+      <button class="action-btn" id="btn-copy-${id}" title="Copiar mensagem" onclick="copyMsg('${id}')">
+        <span id="copy-icon-${id}">${SVG_COPY}</span>
+      </button>
+      <button class="action-btn" title="Editar mensagem" onclick="toggleEdit('${id}')" id="btn-edit-${id}">${SVG_EDIT}</button>
+      <button class="action-btn${hasNote?" active":""}" title="Anotações" onclick="toggleNote('${id}')" id="btn-note-${id}"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="10" height="10" rx="1.5"/><path d="M4.5 5h5M4.5 7.5h3"/></svg></button>
+      <button class="action-btn del" title="Excluir disparo" onclick="${delFn}"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4h9M5.5 4V2.5h3V4M6 6.5v4M8 6.5v4M3.5 4l.7 7.5h5.6L10.5 4"/></svg></button>
+    </div>
+    <div class="cell"><span class="badge ${segClass(d.seg)}">${d.seg}</span></div>
+    <div class="cell"><span class="badge ${canalClass(d.canal)}">${ICONS[d.canal]} ${d.canal}</span>${alertaHtml}</div>
+    <div class="cell">${assuntoHtml}<div class="copy-body" id="copy-${id}">${copyText.replace(/\n/g,"<br>")}</div></div>
+  </div>
+  <div class="note-row${hasNote?" open":""}" id="note-row-${id}">
+    <div class="note-label-row">
+      <span class="note-label">Minhas anotações</span>
+      ${hasNote?`<button class="note-del-btn" onclick="deleteNote('${id}')">Apagar</button>`:""}
+    </div>
+    <textarea placeholder="Escreva suas observações aqui…" oninput="saveNote('${id}',this.value)">${noteText}</textarea>
+  </div>`;
+}
+
 function render(){
   let total = 0;
   let html = "";
   let curMes = "";
+  let todayId = null;
 
   WEEKS.forEach((wk, wIdx) => {
     if(!state.mes.has(wk.mes)) return;
@@ -645,16 +678,21 @@ function render(){
     let daysHtml = "";
     let wkVisible = false;
 
-    wk.dias.forEach((dia, dIdx) => {
+    wk.dias.forEach((dia) => {
       if(dia.feriado){
         daysHtml += `<div class="feriado">📅 ${dia.data} ${dia.diaSem} — ${dia.feriado}</div>`;
         return;
       }
 
-      const vis = dia.disparos.filter((d, dispIdx) => {
-        const rid = `${wk.mes}_${wIdx}_${dia.data.replace('/','-')}_${dispIdx}`;
-        return state.seg.has(d.seg) && state.canal.has(d.canal) && !deletedState[rid];
-      });
+      const dayKey = `${wk.mes}_${wIdx}_${dia.data.replace('/','-')}`;
+      const ehHoje = isToday(dia.data);
+      const ehPassado = isPast(dia.data);
+      if(ehHoje) todayId = `day-block-${dayKey}`;
+
+      const vis = dia.disparos.filter((d, i) => !deletedState[`${dayKey}_${i}`]);
+      const addedRows = addedState[dayKey] || [];
+      const hasRows = vis.length > 0 || addedRows.length > 0;
+      if(hasRows) wkVisible = true;
 
       const segs = [...new Set(vis.map(d=>d.seg))];
       const canais = [...new Set(vis.map(d=>d.canal))];
@@ -662,64 +700,26 @@ function render(){
       const canalChips = canais.map(c=>`<span class="day-chip ${chipCanal(c)}">${c}</span>`).join("");
       const countTxt = vis.length > 0
         ? `<span class="day-count">${vis.length} disparo${vis.length>1?"s":""}</span>`
-        : `<span class="day-count" style="font-style:italic">sem disparo</span>`;
+        : `<span class="day-count" style="font-style:italic;opacity:.65">sem disparo</span>`;
 
-      const dayKey = `${wk.mes}_${wIdx}_${dia.data.replace('/','-')}`;
+      const hojeExtra = ehHoje ? `<span class="hoje-badge">HOJE</span>` : "";
 
-      function makeRowHtml(d, id, delFn) {
-        const isDone = doneState[id] ? "checked" : "";
-        const doneClass = doneState[id] ? " done" : "";
-        const alertaHtml = d.alerta ? `<div class="alerta">${WARN} ${d.alerta}</div>` : "";
-        const assuntoHtml = d.assunto ? `<div class="copy-assunto">Assunto: ${d.assunto}</div>` : "";
-        const copyText = copyState[id] !== undefined ? copyState[id] : d.copy;
-        const noteText = noteState[id] || "";
-        const hasNote  = noteText.length > 0;
-        return `<div class="row${doneClass}" id="row-${id}" draggable="true" ondragstart="dragStart(event,'${id}')" ondragover="dragOver(event)" ondrop="dragDrop(event,'${id}')" ondragend="dragEnd(event)">
-          <div class="drag-cell" title="Arrastar"><svg viewBox="0 0 12 14" fill="currentColor"><circle cx="4" cy="3" r="1.1"/><circle cx="8" cy="3" r="1.1"/><circle cx="4" cy="7" r="1.1"/><circle cx="8" cy="7" r="1.1"/><circle cx="4" cy="11" r="1.1"/><circle cx="8" cy="11" r="1.1"/></svg></div>
-          <div class="chk-cell"><input type="checkbox" ${isDone} onclick="toggleDone('${id}')"></div>
-          <div class="row-actions">
-            <button class="action-btn" title="Editar mensagem" onclick="toggleEdit('${id}')" id="btn-edit-${id}"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2.5l2 2L4 12H2v-2L9.5 2.5z"/></svg></button>
-            <button class="action-btn${hasNote?" active":""}" title="Anotações" onclick="toggleNote('${id}')" id="btn-note-${id}"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="10" height="10" rx="1.5"/><path d="M4.5 5h5M4.5 7.5h3"/></svg></button>
-            ${copyState[id]!==undefined?`<button class="action-btn" title="Restaurar texto original" onclick="restoreCopy('${id}')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5A5 5 0 1 1 3.5 9"/><path d="M2 2.5v3h3"/></svg></button>`:""}
-            <button class="action-btn del" title="Excluir disparo" onclick="${delFn}"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4h9M5.5 4V2.5h3V4M6 6.5v4M8 6.5v4M3.5 4l.7 7.5h5.6L10.5 4"/></svg></button>
-          </div>
-          <div class="cell"><span class="badge ${segClass(d.seg)}">${d.seg}</span></div>
-          <div class="cell"><span class="badge ${canalClass(d.canal)}">${ICONS[d.canal]} ${d.canal}</span>${alertaHtml}</div>
-          <div class="cell">${assuntoHtml}<div class="copy-body" id="copy-${id}">${copyText.replace(/\n/g,"<br>")}</div></div>
-        </div>
-        <div class="note-row${hasNote?" open":""}" id="note-row-${id}">
-          <div class="note-label-row">
-            <span class="note-label">Minhas anotações</span>
-            ${hasNote?`<button class="note-del-btn" title="Apagar anotação" onclick="deleteNote('${id}')">Apagar</button>`:""}
-          </div>
-          <textarea placeholder="Escreva suas observações aqui…" oninput="saveNote('${id}',this.value)">${noteText}</textarea>
-        </div>`;
-      }
+      // Hoje: aberto. Passado: fechado. Futuro com rows: aberto.
+      const shouldOpen = ehHoje || (!ehPassado && hasRows);
 
-      const rowsHtml = vis.map((d, dispIdx) => {
-        total++;
-        const id = `${dayKey}_${dispIdx}`;
-        return makeRowHtml(d, id, `deleteRow('${id}')`);
-      }).join("");
+      const rowsHtml = vis.map((d,i)=>{ total++; return makeRowHtml(d,`${dayKey}_${i}`,`deleteRow('${dayKey}_${i}')`); }).join("");
+      const addedHtml = addedRows.map(d=>{ total++; return makeRowHtml(d,`added_${d.uid}`,`deleteAddedRow('${dayKey}','${d.uid}')`); }).join("");
 
-      const addedRowsHtml = (addedState[dayKey] || []).map((d) => {
-        total++;
-        const id = `added_${d.uid}`;
-        return makeRowHtml(d, id, `deleteAddedRow('${dayKey}','${d.uid}')`);
-      }).join("");
-
-      const hasRows = vis.length > 0 || (addedState[dayKey]||[]).length > 0;
-      if(hasRows) wkVisible = true;
-
-      daysHtml += `<div class="day-block">
-        <div class="day-header${hasRows?" open":""}" onclick="toggleDay(this)">
+      daysHtml += `<div class="day-block${ehHoje?" hoje":""}${ehPassado&&!ehHoje?" passado":""}" id="day-block-${dayKey}">
+        <div class="day-header${shouldOpen?" open":""}" onclick="toggleDay(this)">
           <span class="day-date">${dia.data}</span>
           <span class="day-weekday">${dia.diaSem}</span>
+          ${hojeExtra}
           <div class="day-chips">${segChips}${canalChips}${countTxt}</div>
           <span class="toggle-icon">▾</span>
         </div>
-        <div class="day-rows${hasRows?" open":""}" id="day-rows-${dayKey}">
-          ${rowsHtml}${addedRowsHtml}
+        <div class="day-rows${shouldOpen?" open":""}" id="day-rows-${dayKey}">
+          ${rowsHtml}${addedHtml}
           <div class="add-disparo-wrap">
             <button class="add-disparo-btn" onclick="showAddForm('${dayKey}')">
               <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 2v10M2 7h10"/></svg>
@@ -727,29 +727,17 @@ function render(){
             </button>
             <div class="add-form" id="add-form-${dayKey}">
               <div class="add-form-grid">
-                <div class="add-form-field">
-                  <label>Segmento</label>
-                  <select id="add-seg-${dayKey}">
-                    <option value="Carteira">Carteira</option>
-                    <option value="Churn">Churn</option>
-                    <option value="Plus">Plus</option>
-                  </select>
+                <div class="add-form-field"><label>Segmento</label>
+                  <select id="add-seg-${dayKey}"><option value="Carteira">Carteira</option><option value="Churn">Churn</option><option value="Plus">Plus</option></select>
                 </div>
-                <div class="add-form-field">
-                  <label>Canal</label>
-                  <select id="add-canal-${dayKey}">
-                    <option value="E-mail">E-mail</option>
-                    <option value="WhatsApp">WhatsApp</option>
-                    <option value="SMS">SMS</option>
-                  </select>
+                <div class="add-form-field"><label>Canal</label>
+                  <select id="add-canal-${dayKey}"><option value="E-mail">E-mail</option><option value="WhatsApp">WhatsApp</option><option value="SMS">SMS</option></select>
                 </div>
-                <div class="add-form-field">
-                  <label>Assunto <span style="opacity:.45;font-size:8px">opcional</span></label>
+                <div class="add-form-field"><label>Assunto <span style="opacity:.4;font-size:8px">opcional</span></label>
                   <input type="text" id="add-assunto-${dayKey}" placeholder="Ex: Limite liberado para sua operação">
                 </div>
               </div>
-              <div class="add-form-msg">
-                <label>Mensagem</label>
+              <div class="add-form-msg"><label>Mensagem</label>
                 <textarea id="add-copy-${dayKey}" placeholder="[Nome],&#10;&#10;Escreva a mensagem do disparo aqui…"></textarea>
               </div>
               <div class="add-form-actions">
@@ -781,7 +769,42 @@ function render(){
 
   document.getElementById("app").innerHTML = html || `<div class="empty-state">Nenhum resultado para os filtros selecionados.</div>`;
   document.getElementById("counter").innerHTML = `<span>${total}</span> disparos`;
+  _totalDisparos = total;
+  updateProgress();
+
+  // scroll para hoje
+  if(todayId){
+    setTimeout(()=>{
+      const el = document.getElementById(todayId);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
+    }, 150);
+  }
 }
+
+// ─── Copiar mensagem ───
+window.copyMsg = function(id){
+  const el = document.getElementById("copy-"+id);
+  if(!el) return;
+  const assuntoEl = el.closest('.cell')?.querySelector('.copy-assunto');
+  let text = assuntoEl ? assuntoEl.textContent.trim()+'\n\n' : '';
+  text += el.innerText;
+  navigator.clipboard.writeText(text).then(()=>{
+    const iconEl = document.getElementById("copy-icon-"+id);
+    const btn = document.getElementById("btn-copy-"+id);
+    if(iconEl){ iconEl.innerHTML = SVG_CHECK_SM; }
+    if(btn) btn.classList.add('copied');
+    setTimeout(()=>{
+      if(iconEl) iconEl.innerHTML = SVG_COPY;
+      if(btn) btn.classList.remove('copied');
+    }, 1800);
+  }).catch(()=>{
+    const txt = el.innerText;
+    const ta = document.createElement('textarea');
+    ta.value = txt; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
+  });
+};
 
 window.toggleNote = function(id){
   const noteRow = document.getElementById("note-row-"+id);
@@ -793,8 +816,7 @@ window.toggleNote = function(id){
 };
 
 window.saveNote = function(id, val){
-  if(val.trim()) noteState[id] = val;
-  else delete noteState[id];
+  if(val.trim()) noteState[id] = val; else delete noteState[id];
   localStorage.setItem(NOTE_KEY, JSON.stringify(noteState));
   const btn = document.querySelector(`#row-${id} .action-btn[title="Anotações"]`);
   btn && btn.classList.toggle("active", !!noteState[id]);
@@ -807,7 +829,6 @@ window.deleteNote = function(id){
   if(noteRow){
     noteRow.querySelector("textarea").value = "";
     noteRow.classList.remove("open");
-    // remove botão apagar
     const delBtn = noteRow.querySelector(".note-del-btn");
     if(delBtn) delBtn.remove();
   }
@@ -815,96 +836,42 @@ window.deleteNote = function(id){
   btn && btn.classList.remove("active");
 };
 
-window.restoreCopy = function(id){
-  if(!confirm("Restaurar o texto original? A sua edição será perdida.")) return;
-  delete copyState[id];
-  localStorage.setItem(COPY_KEY, JSON.stringify(copyState));
-  render();
-};
-
 window.deleteRow = function(id){
   const wrapper = document.getElementById("row-"+id);
   const noteRow = document.getElementById("note-row-"+id);
   if(wrapper){
-    wrapper.style.transition = "opacity .25s, max-height .3s";
-    wrapper.style.opacity = "0";
-    wrapper.style.overflow = "hidden";
-    wrapper.style.maxHeight = wrapper.offsetHeight + "px";
-    setTimeout(()=>{ wrapper.style.maxHeight = "0"; wrapper.style.padding = "0"; }, 10);
-    if(noteRow){ noteRow.style.display = "none"; }
-    setTimeout(()=>{ wrapper.remove(); if(noteRow) noteRow.remove(); }, 320);
+    wrapper.style.transition="opacity .25s,max-height .3s";
+    wrapper.style.opacity="0";wrapper.style.overflow="hidden";
+    wrapper.style.maxHeight=wrapper.offsetHeight+"px";
+    setTimeout(()=>{wrapper.style.maxHeight="0";wrapper.style.padding="0";},10);
+    if(noteRow) noteRow.style.display="none";
+    setTimeout(()=>{wrapper.remove();if(noteRow)noteRow.remove();},320);
   }
-  deletedState[id] = true;
+  deletedState[id]=true;
   localStorage.setItem(DELETED_KEY, JSON.stringify(deletedState));
 };
-
-// ─── Drag & Drop ───
-let dragSrcId = null;
-
-window.dragStart = function(e, id){
-  dragSrcId = id;
-  e.dataTransfer.effectAllowed = "move";
-  setTimeout(()=>{ const el = document.getElementById("row-"+id); if(el) el.classList.add("dragging"); }, 0);
-};
-
-window.dragOver = function(e){
-  e.preventDefault();
-  e.dataTransfer.dropEffect = "move";
-  const row = e.target.closest(".row");
-  if(row && row.id !== "row-"+dragSrcId){
-    document.querySelectorAll(".row.drag-over").forEach(r => r.classList.remove("drag-over"));
-    row.classList.add("drag-over");
-  }
-};
-
-window.dragDrop = function(e, targetId){
-  e.preventDefault();
-  if(!dragSrcId || dragSrcId === targetId) return;
-  const src = document.getElementById("row-"+dragSrcId);
-  const srcNote = document.getElementById("note-row-"+dragSrcId);
-  const tgt = document.getElementById("row-"+targetId);
-  if(!src || !tgt) return;
-  const parent = tgt.parentNode;
-  parent.insertBefore(src, tgt);
-  if(srcNote) parent.insertBefore(srcNote, tgt);
-  document.querySelectorAll(".row.drag-over").forEach(r => r.classList.remove("drag-over"));
-};
-
-window.dragEnd = function(e){
-  document.querySelectorAll(".row.dragging").forEach(r => r.classList.remove("dragging"));
-  document.querySelectorAll(".row.drag-over").forEach(r => r.classList.remove("drag-over"));
-  dragSrcId = null;
-};
-
-const SVG_EDIT = `<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2.5l2 2L4 12H2v-2L9.5 2.5z"/></svg>`;
-const SVG_SAVE = `<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3.5 3.5 5.5-6"/></svg>`;
 
 window.toggleEdit = function(id){
   const el = document.getElementById("copy-"+id);
   const btn = document.getElementById("btn-edit-"+id);
   if(!el) return;
-  const isEditing = el.contentEditable === "true";
+  const isEditing = el.contentEditable==="true";
   if(isEditing){
-    el.contentEditable = "false";
-    copyState[id] = el.innerText;
+    el.contentEditable="false";
+    copyState[id]=el.innerText;
     localStorage.setItem(COPY_KEY, JSON.stringify(copyState));
-    if(btn){ btn.innerHTML = SVG_EDIT; btn.classList.remove("editing"); btn.title = "Editar mensagem"; }
+    if(btn){btn.innerHTML=SVG_EDIT;btn.classList.remove("editing");btn.title="Editar mensagem";}
   } else {
-    el.contentEditable = "true";
-    el.focus();
-    const range = document.createRange();
-    range.selectNodeContents(el);
-    range.collapse(false);
-    const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    if(btn){ btn.innerHTML = SVG_SAVE; btn.classList.add("editing"); btn.title = "Salvar edição"; }
+    el.contentEditable="true";el.focus();
+    const range=document.createRange();range.selectNodeContents(el);range.collapse(false);
+    const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);
+    if(btn){btn.innerHTML=SVG_SAVE;btn.classList.add("editing");btn.title="Salvar edição";}
   }
 };
 
 window.toggleDay = function(header){
   const rows = header.nextElementSibling;
-  if(!rows || !rows.classList.contains("day-rows")) return;
+  if(!rows||!rows.classList.contains("day-rows")) return;
   const isOpen = header.classList.toggle("open");
   rows.classList.toggle("open", isOpen);
 };
@@ -914,26 +881,24 @@ window.showAddForm = function(dayKey){
   if(!form) return;
   form.classList.add("open");
   const rows = document.getElementById("day-rows-"+dayKey);
-  if(rows && !rows.classList.contains("open")){
+  if(rows&&!rows.classList.contains("open")){
     rows.classList.add("open");
-    const header = rows.previousElementSibling;
-    if(header) header.classList.add("open");
+    const h=rows.previousElementSibling;if(h)h.classList.add("open");
   }
-  setTimeout(()=>{ const ta = document.getElementById("add-copy-"+dayKey); if(ta) ta.focus(); }, 50);
+  setTimeout(()=>{const ta=document.getElementById("add-copy-"+dayKey);if(ta)ta.focus();},50);
 };
 
 window.cancelAddForm = function(dayKey){
-  const form = document.getElementById("add-form-"+dayKey);
+  const form=document.getElementById("add-form-"+dayKey);
   if(!form) return;
   form.classList.remove("open");
-  const seg = document.getElementById("add-seg-"+dayKey);
-  const canal = document.getElementById("add-canal-"+dayKey);
-  const assunto = document.getElementById("add-assunto-"+dayKey);
-  const copy = document.getElementById("add-copy-"+dayKey);
-  if(seg) seg.value = "Carteira";
-  if(canal) canal.value = "E-mail";
-  if(assunto) assunto.value = "";
-  if(copy) copy.value = "";
+  ["add-seg-","add-canal-","add-assunto-","add-copy-"].forEach((p,i)=>{
+    const el=document.getElementById(p+dayKey);
+    if(!el) return;
+    if(i===0) el.value="Carteira";
+    else if(i===1) el.value="E-mail";
+    else el.value="";
+  });
 };
 
 window.saveNewDisparo = function(dayKey){
@@ -941,34 +906,31 @@ window.saveNewDisparo = function(dayKey){
   const canal  = document.getElementById("add-canal-"+dayKey)?.value;
   const assunto= document.getElementById("add-assunto-"+dayKey)?.value.trim();
   const copy   = document.getElementById("add-copy-"+dayKey)?.value.trim();
-  if(!copy){ alert("Escreva a mensagem do disparo antes de adicionar."); return; }
-  if(!addedState[dayKey]) addedState[dayKey] = [];
-  const uid = Date.now().toString(36) + Math.random().toString(36).slice(2,6);
-  addedState[dayKey].push({ seg, canal, assunto: assunto||"", copy, uid });
+  if(!copy){alert("Escreva a mensagem do disparo antes de adicionar.");return;}
+  if(!addedState[dayKey]) addedState[dayKey]=[];
+  const uid = Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+  addedState[dayKey].push({seg,canal,assunto:assunto||"",copy,uid});
   localStorage.setItem(ADDED_KEY, JSON.stringify(addedState));
   render();
 };
 
 window.deleteAddedRow = function(dayKey, uid){
   if(!addedState[dayKey]) return;
-  addedState[dayKey] = addedState[dayKey].filter(d => d.uid !== uid);
-  if(addedState[dayKey].length === 0) delete addedState[dayKey];
+  addedState[dayKey]=addedState[dayKey].filter(d=>d.uid!==uid);
+  if(addedState[dayKey].length===0) delete addedState[dayKey];
   localStorage.setItem(ADDED_KEY, JSON.stringify(addedState));
   render();
 };
 
-document.getElementById("filterBar").addEventListener("click", e => {
-  const btn = e.target.closest(".fbtn[data-type]");
+document.getElementById("mesFilter").addEventListener("click", e=>{
+  const btn = e.target.closest(".fbtn[data-mes]");
   if(!btn) return;
-  const type = btn.dataset.type;
-  const val = btn.dataset[type];
-  if(state[type].has(val)){
-    if(state[type].size === 1) return;
-    state[type].delete(val);
-    btn.classList.remove("active");
+  const mes = btn.dataset.mes;
+  if(state.mes.has(mes)){
+    if(state.mes.size===1) return;
+    state.mes.delete(mes);btn.classList.remove("active");
   } else {
-    state[type].add(val);
-    btn.classList.add("active");
+    state.mes.add(mes);btn.classList.add("active");
   }
   render();
 });
