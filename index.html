@@ -311,67 +311,6 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 }
 .add-form-cancel:hover{background:var(--bg4);border-color:var(--border3)}
 
-/* ─── SETTINGS ───────────────────── */
-.settings-btn{
-  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);
-  color:rgba(255,255,255,0.55);cursor:pointer;
-  width:34px;height:34px;border-radius:9px;
-  display:flex;align-items:center;justify-content:center;
-  transition:all .15s;flex-shrink:0;
-}
-.settings-btn:hover{background:rgba(255,255,255,0.16);color:#fff;border-color:rgba(255,255,255,0.3)}
-.settings-btn.active{background:var(--brand-blue);border-color:rgba(6,96,254,0.7);color:#fff;box-shadow:0 2px 8px rgba(6,96,254,0.4)}
-.settings-btn svg{width:16px;height:16px}
-
-.settings-panel{
-  display:none;background:var(--brand-navy);
-  border-bottom:1px solid rgba(255,255,255,0.07);
-  padding:14px 2rem;
-  animation:slideDown .18s ease;
-}
-.settings-panel.open{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.settings-label{font-size:9px;font-family:'DM Mono',monospace;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:.14em;white-space:nowrap;flex-shrink:0}
-.settings-input{
-  flex:1;min-width:260px;max-width:480px;
-  padding:8px 12px;border-radius:var(--radius-sm);
-  border:1px solid rgba(255,255,255,0.18);
-  background:rgba(255,255,255,0.07);color:#fff;
-  font-family:'DM Mono',monospace;font-size:12px;
-  outline:none;transition:border-color .15s,box-shadow .15s;
-  letter-spacing:.02em;
-}
-.settings-input::placeholder{color:rgba(255,255,255,0.25)}
-.settings-input:focus{border-color:var(--brand-blue);box-shadow:0 0 0 3px rgba(6,96,254,0.25)}
-.settings-save{
-  padding:8px 16px;border-radius:var(--radius-sm);border:none;cursor:pointer;
-  background:var(--brand-blue);color:#fff;
-  font-size:12px;font-family:'Inter',sans-serif;font-weight:600;
-  transition:opacity .15s;white-space:nowrap;
-}
-.settings-save:hover{opacity:.85}
-.settings-hint{font-size:10px;color:rgba(255,255,255,0.35);font-family:'DM Mono',monospace;white-space:nowrap}
-.settings-hint a{color:rgba(6,96,254,0.9)}
-
-/* ─── AI BUTTON ──────────────────── */
-.action-btn.ai{color:rgba(108,63,196,0.7)}
-.action-btn.ai:hover{background:var(--plus-bg2);border-color:var(--plus-border);color:var(--plus-text)}
-.action-btn.ai.loading{
-  background:var(--plus-bg);border-color:var(--plus-border);color:var(--plus-text);
-  animation:spin .8s linear infinite;
-  pointer-events:none;
-}
-@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.ai-gen-btn{
-  display:flex;align-items:center;gap:6px;
-  padding:7px 14px;border-radius:var(--radius-sm);
-  border:1px solid var(--plus-border);cursor:pointer;
-  background:var(--plus-bg);color:var(--plus-text);
-  font-size:12px;font-family:'Inter',sans-serif;font-weight:600;
-  transition:all .15s;white-space:nowrap;
-}
-.ai-gen-btn:hover{background:var(--plus-bg2);box-shadow:0 2px 8px rgba(108,63,196,0.2)}
-.ai-gen-btn:disabled{opacity:.5;cursor:not-allowed}
-.ai-gen-btn svg{width:13px;height:13px;flex-shrink:0}
 
 @media(max-width:700px){.add-form-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:900px){
@@ -407,19 +346,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
     <button class="fbtn active" data-mes="jul">Julho</button>
     <div class="count-chip" id="counter">— disparos</div>
   </div>
-  <button class="settings-btn" id="settingsBtn" title="Configurar API Claude" onclick="toggleSettings()">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="8" cy="8" r="2.5"/>
-      <path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/>
-    </svg>
-  </button>
 </header>
-<div class="settings-panel" id="settingsPanel">
-  <span class="settings-label">API Key Claude</span>
-  <input class="settings-input" id="apiKeyInput" type="password" placeholder="sk-ant-api03-…" autocomplete="off">
-  <button class="settings-save" onclick="saveApiKey()">Salvar</button>
-  <span class="settings-hint" id="settingsHint"></span>
-</div>
 <div class="progress-bar">
   <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
   <div class="progress-text" id="progressText"><b>0</b> de <b id="progressTotal">0</b> disparos concluídos (0%)</div>
@@ -723,8 +650,7 @@ function makeRowHtml(d, id, delFn){
       <button class="action-btn" id="btn-copy-${id}" title="Copiar mensagem" onclick="copyMsg('${id}')">
         <span id="copy-icon-${id}">${SVG_COPY}</span>
       </button>
-      <button class="action-btn ai" title="Gerar com IA" onclick="generateForRow('${id}','${d.seg}','${d.canal}',${JSON.stringify(d.assunto||'')})" id="btn-ai-${id}"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L8.5 5.5H12.5L9.5 8L10.5 12L7 9.5L3.5 12L4.5 8L1.5 5.5H5.5L7 1.5Z"/></svg></button>
-      <button class="action-btn" title="Editar mensagem" onclick="toggleEdit('${id}')" id="btn-edit-${id}">${SVG_EDIT}</button>
+<button class="action-btn" title="Editar mensagem" onclick="toggleEdit('${id}')" id="btn-edit-${id}">${SVG_EDIT}</button>
       <button class="action-btn${hasNote?" active":""}" title="Anotações" onclick="toggleNote('${id}')" id="btn-note-${id}"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="10" height="10" rx="1.5"/><path d="M4.5 5h5M4.5 7.5h3"/></svg></button>
       <button class="action-btn del" title="Excluir disparo" onclick="${delFn}"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4h9M5.5 4V2.5h3V4M6 6.5v4M8 6.5v4M3.5 4l.7 7.5h5.6L10.5 4"/></svg></button>
     </div>
@@ -817,11 +743,7 @@ function render(){
               </div>
               <div class="add-form-actions">
                 <button class="add-form-cancel" onclick="cancelAddForm('${dayKey}')">Cancelar</button>
-                <button class="ai-gen-btn" id="ai-form-btn-${dayKey}" onclick="generateForForm('${dayKey}','${wk.tema}')">
-                  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L8.5 5.5H12.5L9.5 8L10.5 12L7 9.5L3.5 12L4.5 8L1.5 5.5H5.5L7 1.5Z"/></svg>
-                  Gerar com IA
-                </button>
-                <button class="add-form-save" onclick="saveNewDisparo('${dayKey}')">Adicionar disparo</button>
+<button class="add-form-save" onclick="saveNewDisparo('${dayKey}')">Adicionar disparo</button>
               </div>
             </div>
           </div>
@@ -1001,154 +923,6 @@ window.deleteAddedRow = function(dayKey, uid){
   render();
 };
 
-// ─── API Claude ───
-const API_KEY_STORAGE = "crm_claude_api_key";
-
-function getApiKey(){ return localStorage.getItem(API_KEY_STORAGE)||""; }
-
-window.toggleSettings = function(){
-  const panel = document.getElementById("settingsPanel");
-  const btn = document.getElementById("settingsBtn");
-  const isOpen = panel.classList.toggle("open");
-  btn.classList.toggle("active", isOpen);
-  if(isOpen){
-    const input = document.getElementById("apiKeyInput");
-    const key = getApiKey();
-    input.value = key ? key.slice(0,12)+"…"+key.slice(-4) : "";
-    input.placeholder = key ? "chave salva — cole nova para atualizar" : "sk-ant-api03-…";
-    const hint = document.getElementById("settingsHint");
-    hint.textContent = key ? "✓ chave configurada" : "sem chave — IA desativada";
-    setTimeout(()=>input.focus(),80);
-  }
-};
-
-window.saveApiKey = function(){
-  const raw = document.getElementById("apiKeyInput").value.trim();
-  if(!raw || raw.includes("…")){
-    document.getElementById("settingsPanel").classList.remove("open");
-    document.getElementById("settingsBtn").classList.remove("active");
-    return;
-  }
-  localStorage.setItem(API_KEY_STORAGE, raw);
-  const hint = document.getElementById("settingsHint");
-  hint.textContent = "✓ chave salva!";
-  setTimeout(()=>{
-    document.getElementById("settingsPanel").classList.remove("open");
-    document.getElementById("settingsBtn").classList.remove("active");
-  }, 900);
-};
-
-function buildPrompt(seg, canal, assunto, tema){
-  const ctx = {
-    Carteira:"cliente ativo com limite liberado, objetivo é estimular uso do limite",
-    Churn:"cliente inativo que precisa reativar a conta, objetivo é reconquistar",
-    Plus:"cliente premium com faturamento acima de R$800k e limite até R$500k, exige linguagem mais executiva"
-  }[seg] || seg;
-
-  const rules = {
-    "E-mail":`Formato E-mail: comece com "[Nome]," numa linha só. Depois parágrafo curto de contexto (1 linha). Depois proposta de valor (1-2 linhas). Termine sempre com "Acesse o portal e antecipe." Total: 3-4 parágrafos curtos. ${assunto?`Assunto definido: "${assunto}".`:""}`,
-    "WhatsApp":"Formato WhatsApp: mensagem direta e informal. Começa com \"[Nome],\" seguido do texto na mesma linha. Máximo 2 frases. Termine sempre com \"[link]\".",
-    "SMS":"Formato SMS: sem acentos, sem cedilha, começar com \"Adiante:\". Máximo 120 caracteres. Termine com \"Acesse: [link]\". Nada mais."
-  }[canal] || canal;
-
-  return `Você é especialista em CRM de antecipação de recebíveis da Adiante Recebíveis.
-
-Contexto do disparo:
-- Segmento: ${seg} — ${ctx}
-- Canal: ${canal}
-- Tema da semana: ${tema||"Ativação"}
-
-${rules}
-
-Gere SOMENTE o texto da mensagem, sem explicações, sem aspas ao redor, sem prefixo.`;
-}
-
-async function callClaude(prompt){
-  const key = getApiKey();
-  if(!key) throw new Error("SEM_CHAVE");
-  const res = await fetch("https://api.anthropic.com/v1/messages",{
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json",
-      "x-api-key": key,
-      "anthropic-version":"2023-06-01",
-      "anthropic-dangerous-direct-browser-access":"true"
-    },
-    body:JSON.stringify({
-      model:"claude-haiku-4-5-20251001",
-      max_tokens:400,
-      messages:[{role:"user",content:prompt}]
-    })
-  });
-  if(!res.ok){
-    const err = await res.json().catch(()=>({}));
-    throw new Error(err?.error?.message || `Erro ${res.status}`);
-  }
-  const data = await res.json();
-  return data.content?.[0]?.text?.trim() || "";
-}
-
-window.generateForRow = async function(id, seg, canal, assunto){
-  const key = getApiKey();
-  if(!key){
-    alert("Configure sua API Key do Claude primeiro (ícone ⚙ no canto superior direito).");
-    return;
-  }
-  const btn = document.getElementById("btn-ai-"+id);
-  if(!btn) return;
-  btn.classList.add("loading");
-  try {
-    const tema = btn.closest(".week-block")?.querySelector(".week-tema")?.textContent?.replace("· ","") || "";
-    const text = await callClaude(buildPrompt(seg, canal, assunto, tema));
-    const copyEl = document.getElementById("copy-"+id);
-    if(copyEl){
-      copyEl.innerHTML = text.replace(/\n/g,"<br>");
-      copyState[id] = text;
-      localStorage.setItem(COPY_KEY, JSON.stringify(copyState));
-      // Entra em modo edição para o usuário revisar
-      copyEl.contentEditable="true";copyEl.focus();
-      const editBtn = document.getElementById("btn-edit-"+id);
-      if(editBtn){editBtn.innerHTML=SVG_SAVE;editBtn.classList.add("editing");editBtn.title="Salvar edição";}
-    }
-  } catch(e){
-    if(e.message==="SEM_CHAVE") alert("Configure sua API Key primeiro.");
-    else alert("Erro ao gerar: "+e.message);
-  } finally {
-    btn.classList.remove("loading");
-  }
-};
-
-window.generateForForm = async function(dayKey, tema){
-  const key = getApiKey();
-  if(!key){
-    alert("Configure sua API Key do Claude primeiro (ícone ⚙ no canto superior direito).");
-    return;
-  }
-  const seg    = document.getElementById("add-seg-"+dayKey)?.value;
-  const canal  = document.getElementById("add-canal-"+dayKey)?.value;
-  const assunto= document.getElementById("add-assunto-"+dayKey)?.value.trim();
-  const btn    = document.getElementById("ai-form-btn-"+dayKey);
-  if(btn){ btn.disabled=true; btn.textContent="Gerando…"; }
-  try {
-    const text = await callClaude(buildPrompt(seg, canal, assunto, tema));
-    const ta = document.getElementById("add-copy-"+dayKey);
-    if(ta){ ta.value = text; ta.focus(); }
-  } catch(e){
-    if(e.message==="SEM_CHAVE") alert("Configure sua API Key primeiro.");
-    else alert("Erro ao gerar: "+e.message);
-  } finally {
-    if(btn){ btn.disabled=false; btn.innerHTML=`<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L8.5 5.5H12.5L9.5 8L10.5 12L7 9.5L3.5 12L4.5 8L1.5 5.5H5.5L7 1.5Z"/></svg> Gerar com IA`; }
-  }
-};
-
-// Inicializar hint do settings se key existir
-(function(){
-  const key = getApiKey();
-  if(key){
-    const hint = document.getElementById("settingsHint");
-    if(hint) hint.textContent="✓ chave configurada";
-  }
-})();
 
 document.getElementById("mesFilter").addEventListener("click", e=>{
   const btn = e.target.closest(".fbtn[data-mes]");
